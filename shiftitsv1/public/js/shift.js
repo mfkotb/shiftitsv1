@@ -22,7 +22,8 @@
 	// =====================================================================
 	const SALIS_CONFIG = {
 		landing_page: "home-page", // empty desk route goes here
-		logo: { en: IMG + "Salis.png", ar: IMG + "Salis ar.png" },
+		logo: IMG + "salis-emblem.png",
+		brand: { en: "Salis", ar: "سالس" },
 
 		modules: [
 			{ key: "dashboard", title: "Dashboard", icon: "homepage.png", route: ["home-page"] },
@@ -189,11 +190,12 @@
 		bar.className = "salis-topbar";
 		bar.dir = rtl ? "rtl" : "ltr";
 
-		const logo = rtl ? SALIS_CONFIG.logo.ar : SALIS_CONFIG.logo.en;
+		const brand = rtl ? SALIS_CONFIG.brand.ar : SALIS_CONFIG.brand.en;
 		let html = `
 			<div class="custom-navbar-logo">
 				<a href="${desk_url([SALIS_CONFIG.landing_page])}" class="navbar-logo-link">
-					<img src="${encodeURI(logo)}" alt="Salis" class="navbar-logo">
+					<img src="${encodeURI(SALIS_CONFIG.logo)}" alt="" class="navbar-logo">
+					<span class="salis-brand">${esc(brand)}</span>
 				</a>
 			</div>
 			<div class="custom-navbar-buttons">`;
@@ -237,6 +239,21 @@
 			// v16: no top navbar any more -> our own bar above the page body.
 			const body = document.querySelector(".main-section #body");
 			if (body) body.insertAdjacentElement("beforebegin", build_topbar());
+		},
+		{ admin_too: true }
+	);
+
+	// Highlight the module whose button/menu links to the current page
+	rule(
+		"topbar-active",
+		() => {
+			const here = window.location.pathname;
+			document.querySelectorAll(".salis-topbar .salis-module").forEach((m) => {
+				const hit = [...m.querySelectorAll("a[href]")].some(
+					(a) => a.pathname === here || (a.pathname.length > 6 && here.startsWith(a.pathname + "/"))
+				);
+				m.classList.toggle("active", hit);
+			});
 		},
 		{ admin_too: true }
 	);
