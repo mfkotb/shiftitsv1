@@ -142,6 +142,10 @@
 			email: "mfarouk@shiftits.com",
 			phone: "+20 122 399 9209",
 		},
+
+		// Hide Frappe's own side menu (dock + sidebar) for everyone except Administrator.
+		// The top bar gets a user menu with Logout instead.
+		hide_system_sidebar: true,
 	};
 
 	// =====================================================================
@@ -222,7 +226,27 @@
 			}
 			html += `</div>`;
 		}
-		bar.innerHTML = html + `</div>`;
+		html += `</div>
+			<div class="salis-module salis-user" data-module="user">
+				<a href="#" class="salis-user-chip" onclick="return false;">
+					<span class="salis-avatar"></span>
+					<span class="salis-user-name"></span>
+				</a>
+				<div class="salis-mega-menu"><ol class="sub-menu">
+					<li class="menu-item"><a href="#" data-action="reload"><span>${esc(__("Reload"))}</span></a></li>
+					<li class="menu-item"><a href="#" data-action="logout"><span>${esc(__("Logout"))}</span></a></li>
+				</ol></div>
+			</div>`;
+		bar.innerHTML = html;
+		bar.querySelector('[data-action="logout"]').addEventListener("click", (e) => {
+			e.preventDefault();
+			if (frappe.app?.logout) frappe.app.logout();
+			else frappe.call("logout").then(() => (window.location.href = "/login"));
+		});
+		bar.querySelector('[data-action="reload"]').addEventListener("click", (e) => {
+			e.preventDefault();
+			window.location.reload();
+		});
 		return bar;
 	}
 
@@ -243,12 +267,26 @@
 		{ admin_too: true }
 	);
 
+	// User chip: filled lazily — the session name may not be set yet when the bar is built
+	rule(
+		"user-chip",
+		() => {
+			const el = document.querySelector(".salis-topbar .salis-user-name");
+			if (!el || el.textContent) return;
+			const name = frappe.session.user_fullname || frappe.boot.user?.full_name || frappe.session.user;
+			if (!name) return;
+			el.textContent = name;
+			document.querySelector(".salis-topbar .salis-avatar").textContent = frappe.get_abbr(name);
+		},
+		{ admin_too: true }
+	);
+
 	// Highlight the module whose button/menu links to the current page
 	rule(
 		"topbar-active",
 		() => {
 			const here = decodeURIComponent(window.location.pathname);
-			document.querySelectorAll(".salis-topbar .salis-module").forEach((m) => {
+			document.querySelectorAll(".salis-topbar .salis-module:not(.salis-user)").forEach((m) => {
 				// v16 URLs can carry a section prefix (/desk/manufacturing/work-order),
 				// so compare the part after /desk (or /app).
 				const hit = [...m.querySelectorAll("a[href]")].some((a) => {
@@ -287,13 +325,16 @@
 			const footer = document.createElement("footer");
 			footer.id = "custom-footer";
 			footer.innerHTML = `
-				<div class="footer-bottom" dir="${rtl ? "rtl" : "ltr"}">
-					<div class="contact-line">
-						<a href="${desk_url([SALIS_CONFIG.landing_page])}" class="website-link">${rtl ? "سالس" : "Salis"}</a>
-						<div class="contact-item"><div class="contact-icon">📞</div><span dir="ltr">${esc(f.phone)}</span></div>
-						<div class="contact-item"><div class="contact-icon">✉️</div><span>${esc(f.email)}</span></div>
-						<div class="copyright-line">© ${new Date().getFullYear()} ${rtl ? "جميع الحقوق محفوظة." : "All rights reserved."}</div>
+				<div class="salis-footer" dir="${rtl ? "rtl" : "ltr"}">
+					<a href="${desk_url([SALIS_CONFIG.landing_page])}" class="salis-footer-brand">
+						<img src="${encodeURI(SALIS_CONFIG.logo)}" alt="">
+						<span>${rtl ? SALIS_CONFIG.brand.ar : SALIS_CONFIG.brand.en}</span>
+					</a>
+					<div class="salis-footer-contacts">
+						<a class="salis-footer-chip" href="tel:${esc(f.phone.replace(/\s+/g, ""))}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 1.9.7 2.8a2 2 0 0 1-.5 2.1L8 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2z"/></svg><span dir="ltr">${esc(f.phone)}</span></a>
+						<a class="salis-footer-chip" href="mailto:${esc(f.email)}"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg><span>${esc(f.email)}</span></a>
 					</div>
+					<div class="salis-footer-copy">© ${new Date().getFullYear()} ${rtl ? "سالس — جميع الحقوق محفوظة" : "Salis — All rights reserved"}</div>
 				</div>`;
 			// v16: <body> is a flex row (dock | sidebar | .main-section) — a footer appended
 			// to <body> would become a column. Use the desk's own <footer> slot instead.
@@ -303,6 +344,16 @@
 			if (slot) slot.replaceWith(footer);
 			else if (main) main.appendChild(footer);
 			else document.body.appendChild(footer);
+		},
+		{ admin_too: true }
+	);
+
+	// ---------- Hide Frappe's own side menu ----------
+	rule(
+		"system-sidebar",
+		() => {
+			const on = SALIS_CONFIG.hide_system_sidebar && !is_admin();
+			document.body.classList.toggle("salis-hide-system-sidebar", on);
 		},
 		{ admin_too: true }
 	);
