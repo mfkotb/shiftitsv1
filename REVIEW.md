@@ -73,3 +73,20 @@ bench --site SITE migrate && bench build --app shiftitsv1 && bench restart
 2. الشريط ظاهر فوق، وقائمة التصنيع بتفتح عند الـ hover.
 3. اعمل Sales Invoice واحفظها → الحقول العربي (`custom_debit_to_ar`…) اتملت ومفيش "Not Saved".
 4. افتح Customize Form لـ Sales Invoice و Purchase Invoice وشوف ترتيب الحقول الجديدة.
+
+## 7) نتيجة الاختبار على سيرفر v16 حقيقي
+
+اتعمل bench تجريبي: Frappe 16.60.2 + ERPNext 16.60.0 (Python 3.14, Node 24, MariaDB 10.11).
+
+**عدّى:** `install-app` و `migrate` من غير أخطاء — 97 custom field و 510 property setter اتعملهم sync — الصفحتين والفوتر — 306+ ترجمة عربي اتحمّلت — تحويل `/` للداشبورد — فاتورة مبيعات اتعملت واتعتمدت — `get_profit_from_gl` رجّع الإيراد صح — تقارير الداشبورد الأربعة رجّعت رسوم — الـ 50 تقرير في صفحة التقارير موجودين — الشريط والقوائم والتصنيع بالعربي والإنجليزي.
+
+**مشاكل ظهرت في الاختبار واتصلحت:**
+1. **أي صفحة كانت بتتحوّل للداشبورد** — الـ route بيكون فاضي لحظة تحميل الديسك. التحويل بقى للرابط `/desk` أو `/app` بس.
+2. **الفوتر كان بيكسر تخطيط v16** (الـ body في v16 بقى flex أفقي) → بيتحط في مكان `<footer>` بتاع الديسك.
+3. **تمييز الموديول الحالي** ما كانش بيشتغل لأن روابط v16 فيها قسم زيادة (`/desk/manufacturing/work-order`).
+4. **حفظ Sales Invoice كان بيقع على أي موقع جديد** (`Unknown column 'customer_types'`): الحقول بتعمل `fetch_from` من حقول مش جاية مع التطبيق (`Account.custom_account_name_in_arabic`, `Customer.customer_types`, `Item.code`, `Item.item_type`, `Item Tax Template.type`). → `install.py` بيعملهم كـ Data **لو مش موجودين بس** (لو موجودين عندك من تطبيق تاني ما بيتلمسوش). وكمان UOM `EA` (القيمة الافتراضية لـ Tax UOM).
+5. **`fetch_from` غلط في Sales Invoice Item**: `item.code` و `item.item_type` — مفيش حقل اسمه `item`، الصح `item_code`. ده كان سبب وجود الـ JS القديم أصلًا.
+6. **`custom_debit_to_ar` إجباري ومش بيتملى من السيرفر**: `debit_to` بيتحدد أثناء الـ validate، بعد مرحلة الـ fetch. → `events.py` بيملى أي حقل مخصص فاضي عليه `fetch_from` (للفواتير والسندات والقيود)، وبيحط `item_code` في `code` لو الصنف ملوش كود (زي السلوك القديم).
+7. **الحقول كانت مضغوطة في الأقسام اللي فيها 4–5 أعمدة** بسبب الـ labels جنب الحقول → في الأعمدة الضيقة الـ label بقى فوق الحقل.
+
+**لسه:** الحقول الإجبارية `custom_debit_to_ar` و `code` معناها إن أي حساب مدينين لازم يكون ليه اسم عربي، وإلا الفاتورة مش هتتحفظ — ده قرار تصميم عندكم، مش خطأ.

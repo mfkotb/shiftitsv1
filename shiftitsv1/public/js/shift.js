@@ -247,11 +247,14 @@
 	rule(
 		"topbar-active",
 		() => {
-			const here = window.location.pathname;
+			const here = decodeURIComponent(window.location.pathname);
 			document.querySelectorAll(".salis-topbar .salis-module").forEach((m) => {
-				const hit = [...m.querySelectorAll("a[href]")].some(
-					(a) => a.pathname === here || (a.pathname.length > 6 && here.startsWith(a.pathname + "/"))
-				);
+				// v16 URLs can carry a section prefix (/desk/manufacturing/work-order),
+				// so compare the part after /desk (or /app).
+				const hit = [...m.querySelectorAll("a[href]")].some((a) => {
+					const tail = decodeURIComponent(a.pathname).replace(/^\/(app|desk)/, "");
+					return tail.length > 1 && (here.endsWith(tail) || here.includes(tail + "/"));
+				});
 				m.classList.toggle("active", hit);
 			});
 		},
@@ -292,7 +295,11 @@
 						<div class="copyright-line">© ${new Date().getFullYear()} ${rtl ? "جميع الحقوق محفوظة." : "All rights reserved."}</div>
 					</div>
 				</div>`;
-			document.body.appendChild(footer);
+			// v16: <body> is a flex row (dock | sidebar | .main-section) — a footer appended
+			// to <body> would become a column. Use the desk's own <footer> slot instead.
+			const slot = document.querySelector(".main-section > footer");
+			if (slot) slot.replaceWith(footer);
+			else document.body.appendChild(footer);
 		},
 		{ admin_too: true }
 	);
@@ -425,9 +432,12 @@
 		});
 	}
 
+	// Only the bare desk URL (/desk or /app) goes to the landing page. Checking the URL
+	// (not frappe.get_route()) matters: the route is still empty while the desk boots.
 	function redirect_empty_route() {
-		const r = route();
-		if (!r.length || !r[0]) frappe.set_route(SALIS_CONFIG.landing_page);
+		if (/^\/(app|desk)\/?$/.test(window.location.pathname)) {
+			frappe.set_route(SALIS_CONFIG.landing_page);
+		}
 	}
 
 	// Page actions -> left "action slot" (kept from v1; skips silently if layout differs)

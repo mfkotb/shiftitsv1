@@ -1157,3 +1157,20 @@ header.navbar:has(.salis-topbar) {
   .salis-topbar .custom-navbar-btn { background: rgba(255, 255, 255, 0.18); }
   .salis-topbar .salis-mega-menu { background: rgba(40, 40, 42, 0.96); }
 }
+
+/* Inline labels squeeze inputs in narrow columns (4–5 column sections):
+   stack the label above the input there. */
+.form-column.col-sm-20 .frappe-control .form-group,
+.form-column.col-sm-3 .frappe-control .form-group {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+}
+.form-column.col-sm-20 .frappe-control .control-label,
+.form-column.col-sm-3 .frappe-control .control-label {
+  white-space: normal;
+}
+.form-column.col-sm-20 .frappe-control.input-max-width,
+.form-column.col-sm-3 .frappe-control.input-max-width {
+  max-width: none;
+}
