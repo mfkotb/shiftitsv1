@@ -42,22 +42,9 @@ class SalisHomePage {
 		this.$wrapper = $(wrapper);
 		this.company = frappe.defaults.get_default("company");
 		load_font_awesome();
-		this.render_header();
 		this.render_body();
 		this.load_stats();
 		this.load_charts();
-	}
-
-	render_header() {
-		const name = frappe.session.user_fullname || frappe.session.user;
-		this.$wrapper.find(".page-head").html(`
-			<div class="header full-header">
-				<div class="logo-container"><div class="app-name">${__("Dashboard")}</div></div>
-				<div class="user-info">
-					<div class="user-avatar">${frappe.utils.escape_html(frappe.get_abbr(name))}</div>
-					<div class="user-name">${frappe.utils.escape_html(name)}</div>
-				</div>
-			</div>`);
 	}
 
 	render_body() {

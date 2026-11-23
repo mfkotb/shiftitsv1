@@ -1,51 +1,14 @@
 /* Scoped to this page only */
 
+/* No page header: the Salis top bar already shows the user */
 [data-page-route="home-page"] .page-head {
-	padding: 0 !important;
-	background: #fff !important;
-	box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-	position: sticky;
-	top: var(--navbar-height);
-	z-index: 10;
-}
-
-[data-page-route="home-page"] .full-header {
-	width: 100%;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 15px 30px;
-	background: #fff;
-	box-shadow: 10px 0 8px #e6e6e6;
-}
-
-[data-page-route="home-page"] .app-name {
-	font-size: 20px;
-	font-weight: bold;
-	color: #1e3a8a;
-}
-
-[data-page-route="home-page"] .user-info {
-	display: flex;
-	align-items: center;
-	gap: 10px;
-}
-
-[data-page-route="home-page"] .user-avatar {
-	width: 40px; height: 40px; border-radius: 50%;
-	background: #f97316; color: white;
-	display: flex; align-items: center; justify-content: center;
-	font-weight: bold;
-}
-
-[data-page-route="home-page"] .user-name {
-	font-size: 14px; color: #1e3a8a;
+	display: none !important;
 }
 
 [data-page-route="home-page"] .dashboard-body {
 	display: flex;
 	background: #f9fafb;
-	min-height: calc(100vh - var(--navbar-height));
+	min-height: 100vh;
 	overflow: hidden;
 }
 
