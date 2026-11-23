@@ -358,6 +358,15 @@
 		{ admin_too: true }
 	);
 
+	// ---------- Breadcrumbs: drop the "desktop" (monitor icon) link to Frappe's Desktop ----------
+	// Older v16 builds start every breadcrumb trail with <li><a href="/desk">[monitor]</a></li>.
+	rule("breadcrumb-desktop", () => {
+		if (!SALIS_CONFIG.hide_system_sidebar) return;
+		document
+			.querySelectorAll('.navbar-breadcrumbs li > a[href="/desk"], .navbar-breadcrumbs li > a[href="/app"]')
+			.forEach((a) => a.parentElement.remove());
+	});
+
 	// ---------- Labels before inputs ----------
 	rule(
 		"move-labels",
