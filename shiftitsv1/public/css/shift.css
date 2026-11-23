@@ -24,38 +24,69 @@
 /* Hide unneed links */
 
 a[href="/app/payables"],
+a[href="/desk/payables"],
 a[href="/app/receivables"],
+a[href="/desk/receivables"],
 a[href="/app/financial-reports"],
+a[href="/desk/financial-reports"],
 a[href="/app/employee-lifecycle"],
+a[href="/desk/employee-lifecycle"],
 a[href="/app/recruitment"],
+a[href="/desk/recruitment"],
 a[href="/app/shift-&-attendance"],
+a[href="/desk/shift-&-attendance"],
 a[href="/app/leaves"],
+a[href="/desk/leaves"],
 a[href="/app/expense-claims"],
+a[href="/desk/expense-claims"],
 a[href="/app/assets"],
+a[href="/desk/assets"],
 a[href="/app/performance"],
-a[href="/app/manufacturing"],
+a[href="/desk/performance"],
 a[href="/app/quality"],
+a[href="/desk/quality"],
 a[href="/app/salary-payout"],
+a[href="/desk/salary-payout"],
 a[href="/app/tax-&-benefits"],
+a[href="/desk/tax-&-benefits"],
 a[href="/app/projects"],
+a[href="/desk/projects"],
 a[href="/app/support"],
+a[href="/desk/support"],
 a[href="/app/users"],
+a[href="/desk/users"],
 a[href="/app/website"],
+a[href="/desk/website"],
 a[href="/app/crm"],
+a[href="/desk/crm"],
 a[href="/app/tools"],
+a[href="/desk/tools"],
 a[href="/app/erpnext-settings"],
+a[href="/desk/erpnext-settings"],
 a[href="/app/integrations"],
+a[href="/desk/integrations"],
 a[href="/app/erpnext-integrations"],
+a[href="/desk/erpnext-integrations"],
 a[href="/app/home"],
+a[href="/desk/home"],
 a[href="/app/accounting"],
+a[href="/desk/accounting"],
 a[href="/app/buying"],
+a[href="/desk/buying"],
 a[href="/app/stock"],
+a[href="/desk/stock"],
 a[href="/app/selling"],
+a[href="/desk/selling"],
 a[href="/app/hr"],
+a[href="/desk/hr"],
 a[href="/app/e-invoice-egypt"],
+a[href="/desk/e-invoice-egypt"],
 a[href="/app/payroll"],
+a[href="/desk/payroll"],
 a[href="/app/e-invoice"],
-a[href="/app/build"]
+a[href="/desk/e-invoice"],
+a[href="/app/build"],
+a[href="/desk/build"]
 {
     display: none !important;
 }
@@ -274,6 +305,7 @@ header.navbar .container {
 /* Module Menu */
 /* Wrapper for each module menu */
 .custom-navbar-btn,
+.salis-module,
 .accounting-wrapper,
 .buying-wrapper,
 .selling-wrapper,
@@ -330,6 +362,7 @@ header.navbar .container {
 }
 
 /* Mega menu container */
+.salis-mega-menu,
 .accounting-mega-menu,
 .buying-mega-menu,
 .selling-mega-menu,
@@ -350,6 +383,7 @@ header.navbar .container {
 }
 
 /* Show menu on hover */
+.salis-module:hover .salis-mega-menu,
 .home-wrapper:hover .home-mega-menu,
 .accounting-wrapper:hover .accounting-mega-menu,
 .buying-wrapper:hover .buying-mega-menu,
@@ -833,3 +867,125 @@ button.btn.btn-primary.primary-action {
 }
 
 
+
+/* =======================================================
+   Added in v16 refactor (moved here from inline JS styles)
+   ======================================================= */
+
+/* Own top bar (v16 has no classic navbar; on v15 it sits inside the navbar) */
+.salis-topbar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 4px 1rem;
+  background: var(--navbar-bg, #fff);
+  border-bottom: 1px solid var(--border-color, #eee);
+  position: relative;
+  z-index: 20;
+}
+.navbar .salis-topbar {
+  border-bottom: none;
+  background: transparent;
+  flex: 1;
+}
+
+/* Page actions moved to the left slot */
+.custom-action-slot {
+  width: 270px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  background: #fff;
+  overflow-y: auto;
+  border-right: 1px solid #eee;
+}
+.custom-action-slot button {
+  width: 100%;
+  display: block;
+}
+
+/* Query report inline buttons */
+.visible-menu-buttons {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 6px;
+}
+.visible-menu-buttons .btn {
+  white-space: nowrap;
+}
+
+/* Footer */
+.footer-bottom {
+  background-color: #1e3a8a;
+  color: #fff;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  font-size: 0.95rem;
+}
+.footer-bottom .contact-line {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 2rem 6rem;
+}
+.footer-bottom .website-link {
+  color: #ff9900;
+  font-weight: 700;
+  text-decoration: none;
+}
+.footer-bottom .website-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+.footer-bottom .contact-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #fff;
+}
+.footer-bottom .contact-icon {
+  width: 24px;
+  height: 24px;
+  background-color: #ff9900;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+}
+.footer-bottom .copyright-line {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.85rem;
+}
+
+/* Login page (was done in JS before) */
+body[data-path="login"] .navbar {
+  background-color: #e1dfec;
+}
+body[data-path="login"] .navbar a,
+body[data-path="login"] .navbar .navbar-brand,
+body[data-path="login"] .navbar .nav-link,
+body[data-path="login"] #page-login,
+body[data-path="login"] .page-card,
+body[data-path="login"] .page-card-head h4 {
+  color: #332757;
+}
+body[data-path="login"] .form-control {
+  border: 1px solid #332757;
+  color: #332757;
+}
+body[data-path="login"] .btn.btn-primary {
+  background-color: #332757;
+  border-color: #332757;
+  color: #fff;
+}
+body[data-path="login"] .btn.btn-primary:hover {
+  background-color: #012d4d;
+  border-color: #012d4d;
+}

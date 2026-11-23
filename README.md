@@ -1,40 +1,49 @@
-### ShiftITsV1
+### Salis (shiftitsv1)
 
-ShiftITsV1
+Simplified ERPNext desk by Shift ITs: custom top bar with module menus, a dashboard page,
+a reports launcher, Arabic labels for accounts, and form customisations.
+
+Targets **Frappe / ERPNext v16** (Python 3.14, Node 24).
 
 ### Installation
 
-You can install this app using the [bench](https://github.com/frappe/bench) CLI:
-
 ```bash
 cd $PATH_TO_YOUR_BENCH
-bench get-app $URL_OF_THIS_REPO --branch develop
-bench install-app shiftitsv1
+bench get-app https://github.com/mfkotb/shiftitsv1.git --branch v16-refactor
+bench --site your.site install-app shiftitsv1
+bench --site your.site migrate
+bench build --app shiftitsv1
 ```
+
+### Layout
+
+```
+shiftitsv1/
+├── hooks.py, api.py, modules.txt, patches.txt
+├── public/js/shift.js          # desk UI (top bar, menus, hiding rules) — edit SALIS_CONFIG
+├── public/js/*.js              # doctype form scripts
+├── public/css/shift.css
+├── translations/ar.csv
+└── shiftitsv1/                 # module "ShiftITsV1"
+    ├── custom/*.json           # Custom Fields + Property Setters (synced on migrate)
+    ├── page/home_page/         # dashboard
+    ├── page/reports/           # reports launcher
+    └── web_template/footer/
+```
+
+### Adding a module to the top bar
+
+Add one entry to `SALIS_CONFIG.modules` in `public/js/shift.js`
+(and, if it has reports, a key in `SALIS_REPORTS` in `page/reports/reports.js`).
 
 ### Contributing
 
-This app uses `pre-commit` for code formatting and linting. Please [install pre-commit](https://pre-commit.com/#installation) and enable it for this repository:
+This app uses `pre-commit` (ruff, eslint, prettier):
 
 ```bash
 cd apps/shiftitsv1
 pre-commit install
 ```
-
-Pre-commit is configured to use the following tools for checking and formatting your code:
-
-- ruff
-- eslint
-- prettier
-- pyupgrade
-
-### CI
-
-This app can use GitHub Actions for CI. The following workflows are configured:
-
-- CI: Installs this app and runs unit tests on every push to `develop` branch.
-- Linters: Runs [Frappe Semgrep Rules](https://github.com/frappe/semgrep-rules) and [pip-audit](https://pypi.org/project/pip-audit/) on every pull request.
-
 
 ### License
 
