@@ -31,6 +31,16 @@ website_redirects = [
 	{"source": "/", "target": app_home},
 ]
 
+# Make sure fields that our custom fields fetch from exist (see install.py)
+after_install = "shiftitsv1.install.ensure_fetch_source_fields"
+after_migrate = ["shiftitsv1.install.ensure_fetch_source_fields"]
+
+# Server-side fill of Arabic account names / e-invoice fields (replaces the old before_save JS)
+doc_events = {
+	dt: {"validate": "shiftitsv1.events.fill_empty_fetch_from"}
+	for dt in ("Sales Invoice", "POS Invoice", "Purchase Invoice", "Payment Entry", "Journal Entry")
+}
+
 doctype_js = {
 	"Stock Entry": "public/js/stock_entry.js",
 	"Journal Entry": "public/js/journal_entry.js",

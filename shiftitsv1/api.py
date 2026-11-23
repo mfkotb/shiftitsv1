@@ -35,5 +35,5 @@ def get_profit_from_gl(year: int, company: str | None = None) -> dict:
 
 	balance = {r.root_type: flt(r.balance) for r in rows}
 	income = balance.get("Income", 0.0)
-	expense = -balance.get("Expense", 0.0)
+	expense = 0.0 - balance.get("Expense", 0.0)
 	return {"income": income, "expense": expense, "profit": income - expense}

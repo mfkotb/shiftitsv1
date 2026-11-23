@@ -16,6 +16,13 @@ No Fiscal Year found,لا توجد سنة مالية
 Welcome to Your Dashboard,مرحبًا بك في لوحة التحكم
 Access all your important modules with a single click,الوصول إلى جميع الوحدات المهمة بنقرة واحدة
 ERPNext Dashboard,لوحة تحكم ERPNext
+Home page,الرئيسية
+Title,العنوان
+Item,الصنف
+Is Return (Credit Note),مرتجع (إشعار دائن)
+Include Payment (POS),تضمين الدفع (نقاط البيع)
+Consider for Tax Withholding,تطبيق ضريبة الخصم من المنبع
+Edit Posting Date and Time,تعديل تاريخ ووقت الترحيل
 Bill of Materials,قائمة المواد (BOM)
 Payment Entry,سند قبض / صرف
 Purchase Receipt,استلام المشتريات

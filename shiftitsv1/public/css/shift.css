@@ -916,54 +916,6 @@ button.btn.btn-primary.primary-action {
   white-space: nowrap;
 }
 
-/* Footer */
-.footer-bottom {
-  background-color: #1e3a8a;
-  color: #fff;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  font-size: 0.95rem;
-}
-.footer-bottom .contact-line {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem 6rem;
-}
-.footer-bottom .website-link {
-  color: #ff9900;
-  font-weight: 700;
-  text-decoration: none;
-}
-.footer-bottom .website-link:hover {
-  color: #fff;
-  text-decoration: underline;
-}
-.footer-bottom .contact-item {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  color: #fff;
-}
-.footer-bottom .contact-icon {
-  width: 24px;
-  height: 24px;
-  background-color: #ff9900;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-}
-.footer-bottom .copyright-line {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 0.85rem;
-}
-
 /* Login page (was done in JS before) */
 body[data-path="login"] .navbar {
   background-color: #e1dfec;
@@ -1156,4 +1108,195 @@ header.navbar:has(.salis-topbar) {
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .salis-topbar .custom-navbar-btn { background: rgba(255, 255, 255, 0.18); }
   .salis-topbar .salis-mega-menu { background: rgba(40, 40, 42, 0.96); }
+}
+
+/* Inline labels squeeze inputs in narrow columns (4–5 column sections):
+   stack the label above the input there. */
+.form-column.col-sm-20 .frappe-control .form-group,
+.form-column.col-sm-3 .frappe-control .form-group {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
+}
+.form-column.col-sm-20 .frappe-control .control-label,
+.form-column.col-sm-3 .frappe-control .control-label {
+  white-space: normal;
+}
+.form-column.col-sm-20 .frappe-control.input-max-width,
+.form-column.col-sm-3 .frappe-control.input-max-width {
+  max-width: none;
+}
+
+/* The footer must never become a column of the v16 flex layout */
+#custom-footer {
+  width: 100%;
+  flex: 0 0 auto;
+}
+body > #custom-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+}
+
+/* =======================================================
+   Glass footer (same look as the top bar)
+   ======================================================= */
+/* keep the footer at the bottom of short pages */
+.main-section:has(> #custom-footer) {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.main-section:has(> #custom-footer) > #body {
+  flex: 1 0 auto;
+}
+#custom-footer {
+  margin-top: 24px;
+}
+.salis-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px 24px;
+  padding: 12px 24px;
+  color: #fff;
+  background:
+    radial-gradient(120% 220% at 0% 50%, rgba(30, 167, 242, 0.22), transparent 45%),
+    radial-gradient(120% 220% at 100% 50%, rgba(255, 138, 31, 0.22), transparent 45%),
+    var(--salis-bg);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 -6px 20px rgba(0, 0, 0, 0.18);
+}
+.salis-footer a {
+  text-decoration: none !important;
+}
+.salis-footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.salis-footer-brand img {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.2);
+}
+.salis-footer-brand span {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #ffb066;
+  text-shadow: 0 0 6px rgba(255, 138, 31, 0.8);
+}
+.salis-footer[dir="rtl"] .salis-footer-brand span {
+  font-family: "Cairo", "Tajawal", "Segoe UI", Tahoma, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0;
+}
+.salis-footer-contacts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.salis-footer-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 34px;
+  padding: 0 14px;
+  font-size: 14px;
+  font-weight: 500;
+  color: #fff !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.2), rgba(255, 255, 255, 0.05));
+  border: 1px solid var(--salis-glass-border);
+  border-radius: 12px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transition: border-color 0.25s, box-shadow 0.25s, transform 0.2s;
+}
+.salis-footer-chip svg {
+  color: #ffb066;
+  flex-shrink: 0;
+}
+.salis-footer-chip:hover {
+  transform: translateY(-1px);
+  border-color: rgba(255, 138, 31, 0.75);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.4), 0 6px 16px rgba(255, 138, 31, 0.25);
+}
+.salis-footer-copy {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* =======================================================
+   User menu in the top bar
+   ======================================================= */
+.salis-topbar .salis-user {
+  margin-inline-start: auto;
+  flex-shrink: 0;
+}
+.salis-topbar .salis-user-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 40px;
+  padding: 0 12px 0 4px;
+  color: #fff !important;
+  text-decoration: none !important;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.18), rgba(255, 255, 255, 0.05));
+  border: 1px solid var(--salis-glass-border);
+  border-radius: 20px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+.salis-topbar[dir="rtl"] .salis-user-chip {
+  padding: 0 4px 0 12px;
+}
+.salis-topbar .salis-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  background: var(--salis-orange);
+  color: #fff;
+}
+.salis-topbar .salis-user-name {
+  max-width: 140px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 14px;
+  font-weight: 600;
+}
+.salis-topbar .salis-user .salis-mega-menu {
+  left: auto;
+  right: 0;
+  min-width: 170px;
+}
+.salis-topbar[dir="rtl"] .salis-user .salis-mega-menu {
+  right: auto;
+  left: 0;
+}
+
+/* =======================================================
+   Hide Frappe's own side menu (non-Administrator)
+   ======================================================= */
+body.salis-hide-system-sidebar #desk-dock,
+body.salis-hide-system-sidebar .body-sidebar-container,
+body.salis-hide-system-sidebar .body-sidebar {
+  display: none !important;
+}
+body.salis-hide-system-sidebar .main-section {
+  flex: 1 1 auto;
+  width: 100%;
+  margin-inline-start: 0 !important;
 }
