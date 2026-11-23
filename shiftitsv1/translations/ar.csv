@@ -1,0 +1,306 @@
+Dashboard,لوحة التحكم
+Overview,نظرة عامة
+Reports,التقارير
+Chart of Account,شجرة الحسابات
+Chart of Accounts,شجرة الحسابات
+Sales Persons,مندوبو المبيعات
+Active Customers,العملاء النشطون
+Active Items,الأصناف النشطة
+Active Suppliers,الموردون النشطون
+Work Orders In Process,أوامر عمل قيد التنفيذ
+Profit & Loss,الأرباح والخسائر
+Manufacture Entries,قيود التصنيع
+No chart data available,لا توجد بيانات للرسم البياني
+Failed to load report,تعذر تحميل التقرير
+No Fiscal Year found,لا توجد سنة مالية
+Welcome to Your Dashboard,مرحبًا بك في لوحة التحكم
+Access all your important modules with a single click,الوصول إلى جميع الوحدات المهمة بنقرة واحدة
+ERPNext Dashboard,لوحة تحكم ERPNext
+Bill of Materials,قائمة المواد (BOM)
+Payment Entry,سند قبض / صرف
+Purchase Receipt,استلام المشتريات
+Serial No,الرقم التسلسلي
+Job Card,بطاقة العمل
+Operation,العملية
+Manufacture,تصنيع
+Repack,إعادة تعبئة
+Material Receipt,استلام مواد
+Material Transfer for Manufacture,تحويل مواد للتصنيع
+Material Consumption for Manufacture,استهلاك مواد للتصنيع
+Items,الأصناف
+User,المستخدم
+UOM,وحدة القياس
+General and Payment Ledger Comparison,مقارنة دفتر الأستاذ العام بدفتر المدفوعات
+Supplier Ledger Summary,ملخص دفتر أستاذ الموردين
+Customer Ledger Summary,ملخص دفتر أستاذ العملاء
+Inactive Sales Items,أصناف مبيعات غير نشطة
+Delivered Items To Be Billed,أصناف مسلَّمة لم تُفوتر
+Received Items To Be Billed,أصناف مستلَمة لم تُفوتر
+Billed Items To Be Received,أصناف مُفوترة لم تُستلم
+Sales Payment Summary,ملخص تحصيلات المبيعات
+Subcontract Order Summary,ملخص أوامر التصنيع لدى الغير
+Subcontracted Raw Materials To Be Transferred,خامات تصنيع لدى الغير مطلوب تحويلها
+Subcontracted Item To Be Received,أصناف تصنيع لدى الغير لم تُستلم
+Purchase Order Trends,اتجاهات أوامر الشراء
+Purchase Receipt Trends,اتجاهات استلام المشتريات
+Sales Order Trends,اتجاهات أوامر البيع
+Quotation Trends,اتجاهات عروض الأسعار
+Sales Person-wise Transaction Summary,ملخص المعاملات حسب مندوب المبيعات
+Payment Terms Status for Sales Order,حالة شروط الدفع لأمر البيع
+Pending SO Items For Purchase Request,أصناف أوامر البيع المعلقة لطلب الشراء
+Available Stock for Packing Items,المخزون المتاح لأصناف التعبئة
+Territory-wise Sales,المبيعات حسب المنطقة
+Sales Person Target Variance Based On Item Group,انحراف مستهدف مندوب المبيعات حسب مجموعة الأصناف
+Inactive Customers,العملاء غير النشطين
+Customer-wise Item Price,أسعار الأصناف حسب العميل
+Customers Without Any Sales Transactions,عملاء بدون أي معاملات بيع
+Stock Ledger Variance,انحرافات دفتر أستاذ المخزون
+Items To Be Requested,أصناف مطلوب طلبها
+Requested Items To Be Transferred,أصناف مطلوب تحويلها
+Serial and Batch Summary,ملخص الأرقام التسلسلية والدفعات
+Batch-Wise Balance History,سجل الأرصدة حسب الدفعة
+Batch Item Expiry Status,حالة صلاحية أصناف الدفعات
+Production Analytics,تحليلات الإنتاج
+BOM Explorer,مستكشف قوائم المواد
+BOM Operations Time,زمن عمليات قائمة المواد
+Downtime Analysis,تحليل أوقات التوقف
+Process Loss Report,تقرير فاقد التشغيل
+Account Name in Arabic,اسم الحساب بالعربي
+Account ar,الحساب (عربي)
+Account Paid From ar,الحساب المدفوع منه (عربي)
+Account Paid To ar,الحساب المدفوع إليه (عربي)
+Account for Change Amount ar,حساب الباقي (عربي)
+Cash/Bank Account ar,حساب النقدية / البنك (عربي)
+Credit To ar,دائن إلى (عربي)
+Debit To ar,مدين إلى (عربي)
+Redemption Account ar,حساب الاسترداد (عربي)
+Write Off Account ar,حساب الشطب (عربي)
+Unrealized Profit / Loss Account ar,حساب الأرباح / الخسائر غير المحققة (عربي)
+Customer Types,نوع العميل
+Tax ID/National ID,الرقم الضريبي / الرقم القومي
+Item Type,نوع الصنف
+Tax UOM,وحدة القياس الضريبية
+Discount Before,الخصم قبل الضريبة
+Discount After,الخصم بعد الضريبة
+Total Amount,إجمالي المبلغ
+E Invoice,الفاتورة الإلكترونية
+E Invoice Process Status,حالة إرسال الفاتورة الإلكترونية
+Submission ID,رقم الإرسال
+Is Valid,صالحة
+Barcode attach,إرفاق الباركود
+Barcode Attach,إرفاق الباركود
+Barcode Image,صورة الباركود
+Advance Payment,الدفعة المقدمة
+Amounts and Bank Accounts,المبالغ والحسابات البنكية
+Product Bundle Copy,حزمة المنتج
+Process,العملية
+Taxes & Charges,الضرائب والرسوم
+Purchase Taxes and Charges,ضرائب ورسوم الشراء
+Additional Info,معلومات إضافية
+Delivery Manager,مدير التسليم
+Delivery User,مستخدم التسليم
+Employee Self Service,الخدمة الذاتية للموظف
+Interviewer,مُجري المقابلة
+Translator,المترجم
+Workspace Manager,مدير مساحات العمل
+Navigation Settings,إعدادات التنقل
+Desk Settings,إعدادات سطح المكتب
+Roles & Permissions,الأدوار والصلاحيات
+Connections,الارتباطات
+Profile,الملف الشخصي
+Token Cache,ذاكرة التخزين المؤقت للرموز
+Basic Info,المعلومات الأساسية
+Workspace,مساحة العمل
+Default Workspace,مساحة العمل الافتراضية
+Begin typing for results.,ابدأ الكتابة لعرض النتائج.
+"If left empty, the default workspace will be the last visited workspace",إذا تُرك فارغًا، ستكون مساحة العمل الافتراضية هي آخر مساحة تمت زيارتها
+Default App,التطبيق الافتراضي
+Redirect to the selected app after login,التوجيه إلى التطبيق المحدد بعد تسجيل الدخول
+Used OAuth,تم استخدام OAuth
+Bulk Actions,إجراءات جماعية
+View Switcher,مبدّل طرق العرض
+Desk Theme,مظهر سطح المكتب
+My Profile,ملفي الشخصي
+My Settings,إعداداتي
+Apps,التطبيقات
+Toggle Full Width,تبديل العرض الكامل
+Toggle Theme,تبديل المظهر
+Logout,تسجيل الخروج
+Log out,تسجيل الخروج
+Translate Data,ترجمة البيانات
+No.,م
+Add Row,إضافة صف
+Edit Full Form,تعديل النموذج الكامل
+Insert Above,إدراج أعلى
+Insert Below,إدراج أسفل
+Copy to ClipBoard,نسخ إلى الحافظة
+Remind Me,ذكّرني
+Undo,تراجع
+Redo,إعادة
+Normal,عادي
+You last edited this,آخر تعديل بواسطتك
+You created this,أنشأتَ هذا
+Edit Filters,تعديل عوامل التصفية
+Filter By,تصفية حسب
+Filters,عوامل التصفية
+Apply Filters,تطبيق التصفية
++ Add a Filter,+ إضافة عامل تصفية
+Clear Filters,مسح عوامل التصفية
+Collapse All,طي الكل
+List View,عرض القائمة
+Report View,عرض التقرير
+Image View,عرض الصور
+View Form,عرض النموذج
+Calendar View,عرض التقويم
+Dashboard View,عرض لوحة التحكم
+Kanban View,عرض كانبان
+Tree View,عرض شجري
+Rebuild Tree,إعادة بناء الشجرة
+Upload,رفع
+Verified By,تمت المراجعة بواسطة
+Dr,مدين
+Field Mapping,ربط الحقول
+Invalid Parent Account,الحساب الرئيسي غير صالح
+Inventory Settings,إعدادات المخزون
+Deferred Accounting,المحاسبة المؤجلة
+Allow Purchase,السماح بالشراء
+Allow Sales,السماح بالبيع
+Grant Commission,منح عمولة
+Minimum Net Rate,الحد الأدنى لصافي السعر
+Maximum Net Rate,الحد الأقصى لصافي السعر
+Internal Supplier,مورد داخلي
+Internal Customer,عميل داخلي
+Is Internal Customer,عميل داخلي
+Primary Address and Contact,العنوان وجهة الاتصال الأساسية
+Supplier Primary Address,العنوان الأساسي للمورد
+Supplier Primary Contact,جهة الاتصال الأساسية للمورد
+Transit,ترانزيت
+Goods In Transit,بضائع بالطريق
+Default In-Transit Warehouse,مخزن البضائع بالطريق الافتراضي
+Is Rejected Warehouse,مخزن مرفوضات
+"If yes, then this warehouse will be used to store rejected materials",عند التفعيل، سيُستخدم هذا المخزن لتخزين المواد المرفوضة
+Is Group Warehouse,مخزن مجموعة
+Warehouse Settings,إعدادات المخزن
+From Opportunity,من الفرصة
+From Prospect,من العميل المحتمل
+Allowed Items,الأصناف المسموح بها
+Party Specific Item,صنف خاص بطرف
+Mention if non-standard Receivable account,حدّد إذا كان حساب المدينين غير قياسي
+Customer Portal Users,مستخدمو بوابة العملاء
+Portal Users,مستخدمو البوابة
+Get Customer Group Details,جلب تفاصيل مجموعة العملاء
+Parent Customer Group,مجموعة العملاء الرئيسية
+COMPANY,الشركة
+Unrealized Profit / Loss Account,حساب الأرباح / الخسائر غير المحققة
+Default Payment Discount Account,حساب خصم السداد الافتراضي
+Book Advance Payments in Separate Party Account,تسجيل الدفعات المقدمة في حساب طرف منفصل
+Enabling this option will allow you to record - <br><br> 1. Advances Received in a <b>Liability Account</b> instead of the <b>Asset Account</b><br><br>2. Advances Paid in an <b>Asset Account</b> instead of the <b> Liability Account</b>,تفعيل هذا الخيار يتيح لك تسجيل: <br><br> 1. الدفعات المقدمة المستلمة في <b>حساب التزامات</b> بدلاً من <b>حساب أصول</b><br><br>2. الدفعات المقدمة المدفوعة في <b>حساب أصول</b> بدلاً من <b>حساب التزامات</b>
+Exchange Gain / Loss,أرباح / خسائر فروق العملة
+Round Off for Opening,تقريب الأرصدة الافتتاحية
+Exchange Rate Revaluation Settings,إعدادات إعادة تقييم أسعار الصرف
+Auto Create Exchange Rate Revaluation,إنشاء إعادة تقييم أسعار الصرف تلقائيًا
+Submit ERR Journals?,اعتماد قيود إعادة التقييم؟
+Fixed Asset Defaults,الإعدادات الافتراضية للأصول الثابتة
+Advance Payment Date,تاريخ الدفعة المقدمة
+Oldest Of Invoice Or Advance,الأقدم بين الفاتورة والدفعة المقدمة
+Reconciliation Date,تاريخ التسوية
+Buying & Selling Settings,إعدادات الشراء والبيع
+Buying and Selling,الشراء والبيع
+HR & Payroll,الموارد البشرية والرواتب
+HR & Payroll Settings,إعدادات الموارد البشرية والرواتب
+Stock and Manufacturing,المخزون والتصنيع
+Default Operating Cost Account,حساب تكاليف التشغيل الافتراضي
+Advance Taxes and Charges,ضرائب ورسوم الدفعة المقدمة
+Considered In Paid Amount,مُحتسبة ضمن المبلغ المدفوع
+Show Net Values in Party Account,إظهار صافي القيم في حساب الطرف
+Add Columns in Transaction Currency,إضافة أعمدة بعملة المعاملة
+Show Remarks,إظهار الملاحظات
+Ignore Exchange Rate Revaluation Journals,تجاهل قيود إعادة تقييم أسعار الصرف
+Ignore System Generated Credit / Debit Notes,تجاهل الإشعارات الدائنة / المدينة المُنشأة آليًا
+Voucher Subtype,النوع الفرعي للقيد
+Revaluation Journals,قيود إعادة التقييم
+Show GL Balance,إظهار رصيد دفتر الأستاذ العام
+View Ledgers,عرض دفاتر الأستاذ
+Is Tax Withholding Account,حساب ضريبة خصم من المنبع
+Apply TDS,تطبيق الخصم من المنبع
+UnReconcile,إلغاء التسوية
+Use Company default Cost Center for Round off,استخدام مركز التكلفة الافتراضي للشركة في التقريب
+Use Company Default Round Off Cost Center,استخدام مركز التكلفة الافتراضي للشركة في التقريب
+Difference Posting Date,تاريخ ترحيل الفروق
+Use Transaction Date Exchange Rate,استخدام سعر الصرف في تاريخ المعاملة
+Show only the Immediate Upcoming Term,إظهار القسط القادم فقط
+Include Disabled,تضمين المعطَّل
+Include Closed Orders,تضمين الأوامر المغلقة
+Payment Amount (Company Currency),مبلغ الدفع (بعملة الشركة)
+Terms & Conditions,الشروط والأحكام
+Order Status,حالة الأمر
+Update Rate as per Last Purchase,تحديث السعر حسب آخر شراء
+Supplier Invoice,فاتورة المورد
+Supplier Contact,جهة اتصال المورد
+Company Billing Address,عنوان فواتير الشركة
+Company Shipping Address,عنوان شحن الشركة
+Shipping Address Template,قالب عنوان الشحن
+Dispatch Address Name,اسم عنوان الشحن
+Subcontracted Quantity,الكمية المصنّعة لدى الغير
+Is Subcontracted,تصنيع لدى الغير
+Rate of Stock UOM (EGP),السعر بوحدة قياس المخزون (ج.م)
+Available Qty at Target Warehouse,الكمية المتاحة في المخزن المستهدف
+Available Qty at Company,الكمية المتاحة في الشركة
+Available Qty For Consumption,الكمية المتاحة للاستهلاك
+Qty to Be Consumed,الكمية المطلوب استهلاكها
+Sales Order Packed Item,صنف معبأ في أمر البيع
+Serail/Batch Nos,الأرقام التسلسلية / الدفعات
+Serail / Batch Nos,الأرقام التسلسلية / الدفعات
+Serial No.,الرقم التسلسلي
+Serial and Batch No,الرقم التسلسلي ورقم الدفعة
+Serial and Batch Bundle,حزمة الأرقام التسلسلية والدفعات
+Use Serial No / Batch Fields,استخدام حقول الرقم التسلسلي / الدفعة
+Serial Nos Manually,إدخال الأرقام التسلسلية يدويًا
+Enter Serial Nos,إدخال الأرقام التسلسلية
+Serial No Range,نطاق الأرقام التسلسلية
+Scan Serial No,مسح الرقم التسلسلي
+Enter Manually,إدخال يدوي
+Enter each serial no in a new line,أدخل كل رقم تسلسلي في سطر جديد
+Serial No Ledger,دفتر الأرقام التسلسلية
+Use Batch-wise Valuation,التقييم حسب الدفعة
+Return Qty from Rejected Warehouse,كمية المرتجع من مخزن المرفوضات
+WIP Composite Asset,أصل مركب تحت الإنشاء
+Provisional Expense Account,حساب المصروفات المؤقتة
+Qty (Warehouse),الكمية (المخزن)
+Qty (Company),الكمية (الشركة)
+Production Plan Qty,كمية خطة الإنتاج
+Picked Qty (in Stock UOM),الكمية المجهزة (بوحدة قياس المخزون)
+Inter Transfer Reference,مرجع التحويل الداخلي
+Amount Eligible for Commission,المبلغ المستحق عليه عمولة
+Quality Inspection(2),فحص الجودة (2)
+Qty in Stock UOM,الكمية بوحدة قياس المخزون
+Qty as Per Stock UOM,الكمية حسب وحدة قياس المخزون
+Received Qty in Stock UOM,الكمية المستلمة بوحدة قياس المخزون
+Accepted Qty in Stock UOM,الكمية المقبولة بوحدة قياس المخزون
+Stock UOM,وحدة قياس المخزون
+Is Rate Adjustment Entry (Debit Note),قيد تعديل سعر (إشعار مدين)
+Issue a debit note with 0 qty against an existing Sales Invoice,إصدار إشعار مدين بكمية صفر على فاتورة مبيعات قائمة
+Is Cash or Non Trade Discount,خصم نقدي أو غير تجاري
+Is Finished Item,صنف تام الصنع
+Is Scrap Item,صنف خردة
+Is Free Item,صنف مجاني
+Is Return,مرتجع
+Due Date,تاريخ الاستحقاق
+Posting Time,وقت الترحيل
+Get Items From,جلب الأصناف من
+Apply Putaway Rule,تطبيق قاعدة التخزين
+Landed Cost Voucher Amount,مبلغ مستند التكاليف الإضافية
+Expense Head,بند المصروف
+Group same items,تجميع الأصناف المتشابهة
+Item Tax Template,قالب ضريبة الصنف
+Has Unit Price Items,يحتوي على أصناف بسعر الوحدة
+Incoterm,شروط التسليم الدولية (Incoterm)
+Distributed Discount Amount,مبلغ الخصم الموزَّع
+Supplier delivers to Customer,المورد يسلّم للعميل مباشرة
+Against Blanket Order,مقابل أمر إطاري
+Amount Currency,عملة المبلغ
+Contribution to Net Total,المساهمة في صافي الإجمالي
+Fetch Timesheet,جلب سجلات الوقت
+Get Timesheets,جلب سجلات الوقت
+Retain Sample,الاحتفاظ بعينة
+(FIFO),(الوارد أولًا يُصرف أولًا)

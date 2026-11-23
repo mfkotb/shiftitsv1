@@ -1,0 +1,62 @@
+/* Scoped to this page only */
+
+[data-page-route="reports"] .nav-tabs {
+	justify-content: center;
+	border-bottom: none;
+}
+
+[data-page-route="reports"] .nav-tabs .nav-link {
+	color: #1e3a8a !important;
+	font-weight: 600;
+	font-size: 28px;
+	border: none;
+}
+
+[data-page-route="reports"] .nav-tabs .nav-link.active {
+	color: #f97316 !important;
+	border-bottom: 3px solid #f97316 !important;
+}
+
+[data-page-route="reports"] .tiles-container {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 25px;
+	justify-items: center;
+	margin-top: 30px;
+	padding: 0 40px;
+}
+
+[data-page-route="reports"] .tile {
+	background: white;
+	border-radius: 12px;
+	padding: 25px 15px;
+	box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+	cursor: pointer;
+	transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+	text-align: center;
+	color: #1e3a8a;
+	width: 200px;
+	text-decoration: none !important;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 80px;
+}
+
+[data-page-route="reports"] .tile:hover {
+	transform: translateY(-5px);
+	box-shadow: 0 6px 18px rgba(0,0,0,0.15);
+	background: #f97316;
+	color: #fff;
+}
+
+[data-page-route="reports"] .tile-title {
+	font-size: 16px;
+	font-weight: 600;
+	color: #1e3a8a;
+	text-decoration: none !important;
+}
+
+[data-page-route="reports"] .tile:hover .tile-title {
+	color: #fff;
+}
