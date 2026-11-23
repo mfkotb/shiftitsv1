@@ -20,8 +20,14 @@ add_to_apps_screen = [
 ]
 
 # Desk assets
-app_include_css = "/assets/shiftitsv1/css/shift.css"
-app_include_js = "/assets/shiftitsv1/js/shift.js"
+app_include_css = [
+	"/assets/shiftitsv1/css/shift.css",
+	"/assets/shiftitsv1/css/salis_assistant.css",
+]
+app_include_js = [
+	"/assets/shiftitsv1/js/shift.js",
+	"/assets/shiftitsv1/js/salis_assistant.js",
+]
 
 # Website / login page: CSS only (shift.js needs the desk and must not run here)
 web_include_css = "/assets/shiftitsv1/css/shift.css"
@@ -32,8 +38,8 @@ website_redirects = [
 ]
 
 # Make sure fields that our custom fields fetch from exist (see install.py)
-after_install = "shiftitsv1.install.ensure_fetch_source_fields"
-after_migrate = ["shiftitsv1.install.ensure_fetch_source_fields"]
+after_install = "shiftitsv1.install.after_install"
+after_migrate = ["shiftitsv1.install.after_migrate"]
 
 # Server-side fill of Arabic account names / e-invoice fields (replaces the old before_save JS)
 doc_events = {
