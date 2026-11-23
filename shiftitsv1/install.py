@@ -42,3 +42,31 @@ def ensure_fetch_source_fields():
 	# Sales Invoice Item.tax_uom defaults to "EA" (e-invoice unit code)
 	if not frappe.db.exists("UOM", "EA"):
 		frappe.get_doc({"doctype": "UOM", "uom_name": "EA"}).insert(ignore_permissions=True)
+
+
+def seed_help_articles():
+	"""Insert the bundled help articles that don't exist yet. Never overwrites edits."""
+	import json
+	import os
+
+	if not frappe.db.table_exists("Salis Help Article"):
+		return
+	path = os.path.join(os.path.dirname(__file__), "data", "help_articles.json")
+	with open(path, encoding="utf-8") as f:
+		articles = json.load(f)
+	for a in articles:
+		if frappe.db.exists("Salis Help Article", a["article_id"]):
+			continue
+		if a.get("related_doctype") and not frappe.db.exists("DocType", a["related_doctype"]):
+			a["related_doctype"] = None
+		frappe.get_doc({"doctype": "Salis Help Article", **a}).insert(ignore_permissions=True)
+
+
+def after_install():
+	ensure_fetch_source_fields()
+	seed_help_articles()
+
+
+def after_migrate():
+	ensure_fetch_source_fields()
+	seed_help_articles()

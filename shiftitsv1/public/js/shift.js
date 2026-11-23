@@ -234,6 +234,10 @@
 			html += `</div>`;
 		}
 		html += `</div>
+			<button type="button" class="salis-assistant-btn" title="${esc(__("Assistant"))}">
+				<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V13"/><path d="M12 16h.01"/></svg>
+				<span>${esc(__("Assistant"))}</span>
+			</button>
 			<div class="salis-module salis-user" data-module="user">
 				<a href="#" class="salis-user-chip">
 					<span class="salis-avatar"></span>
@@ -263,6 +267,9 @@
 				bar.querySelectorAll(".salis-module.open").forEach((m) => m.classList.remove("open"));
 			}
 		});
+		bar.querySelector(".salis-assistant-btn").addEventListener("click", () =>
+			document.dispatchEvent(new CustomEvent("salis:assistant-toggle"))
+		);
 		bar.querySelector('[data-action="logout"]').addEventListener("click", (e) => {
 			e.preventDefault();
 			if (frappe.app?.logout) frappe.app.logout();
@@ -314,7 +321,7 @@
 			document.querySelectorAll(".salis-topbar .salis-module:not(.salis-user)").forEach((m) => {
 				// v16 URLs can carry a section prefix (/desk/manufacturing/work-order),
 				// so compare the part after /desk (or /app).
-				const hit = [...m.querySelectorAll("a[href]")].some((a) => {
+				const hit = [...m.querySelectorAll('a[href]:not([href="#"])')].some((a) => {
 					const tail = decodeURIComponent(a.pathname).replace(/^\/(app|desk)/, "");
 					return tail.length > 1 && (here.endsWith(tail) || here.includes(tail + "/"));
 				});

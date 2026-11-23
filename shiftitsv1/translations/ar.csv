@@ -26,6 +26,8 @@ Edit Posting Date and Time,تعديل تاريخ ووقت الترحيل
 Bill of Materials,قائمة المواد (BOM)
 Payment Entry,سند قبض / صرف
 Purchase Receipt,استلام المشتريات
+Sales Order,أمر البيع
+Delivery Note,إذن التسليم
 Serial No,الرقم التسلسلي
 Job Card,بطاقة العمل
 Operation,العملية
@@ -37,6 +39,86 @@ Material Consumption for Manufacture,استهلاك مواد للتصنيع
 Items,الأصناف
 User,المستخدم
 UOM,وحدة القياس
+Assistant,المساعد
+Explain this screen,شرح الشاشة
+Ask,اسأل
+Type your question…,اكتب سؤالك…
+Loading…,جاري التحميل…
+How it works,طريقة العمل
+Required fields,الحقول المطلوبة
+Table,جدول
+Each row,في كل سطر
+Sections,الأقسام
+Related screens,شاشات مرتبطة
+Step-by-step guides,شرح خطوة بخطوة
+No explanation available for this screen.,مفيش شرح متاح للشاشة دي.
+Examples,أمثلة
+how do I make a sales return?,إزاي أعمل مرتجع مبيعات؟
+opening balances,الأرصدة الافتتاحية
+work order,أمر عمل
+Explain,اشرح
+Open,فتح
+"No answer found. Try other words, e.g. the screen name.",مش لاقي إجابة. جرّب كلمات تانية، زي اسم الشاشة.
+Back,رجوع
+Salis,سالس
+General,عام
+Open a screen to see an explanation of it here.,افتح أي شاشة وهتلاقي شرحها هنا.
+Fill in the required fields and save (Ctrl+S).,املا الحقول المطلوبة واحفظ (Ctrl+S).
+"Check the document, then click Submit to confirm it. A submitted document cannot be edited.",راجع المستند، وبعدها اضغط اعتماد (Submit). المستند المعتمد ما ينفعش يتعدّل.
+"To correct a submitted document: Cancel it, then Amend to create a corrected copy.",لتصحيح مستند معتمد: إلغاء (Cancel)، وبعدها تعديل (Amend) لعمل نسخة مصححة.
+Report,تقرير
+"Set the filters at the top (company, dates …); the report refreshes automatically.",اختار الفلاتر اللي فوق (الشركة، التواريخ …) والتقرير بيتحدّث لوحده.
+"Use Export to download it as Excel, or Print to print it.",استخدم Export لتنزيله إكسيل، أو Print للطباعة.
+Add Column lets you show more columns.,Add Column بيظهر أعمدة زيادة.
+"Profit & loss, sales, purchases and production for the current fiscal year.",الأرباح والخسائر والمبيعات والمشتريات والإنتاج للسنة المالية الحالية.
+"Use the menu on the side to open master data (customers, items, warehouses …).",من القائمة الجانبية تفتح البيانات الأساسية (العملاء، الأصناف، المخازن …).
+Use the buttons at the top to reach each section's screens.,من الزراير اللي فوق توصل لشاشات كل قسم.
+"All Salis reports, grouped by section. Pick a tab, then click a report.",كل تقارير سالس مقسمة حسب القسم. اختار القسم وبعدها التقرير.
+Salis Help Article,مقالات المساعدة
+Article ID,كود المقالة
+Published,منشورة
+Related Screen,الشاشة المرتبطة
+Title (Arabic),العنوان (عربي)
+Content (Arabic),المحتوى (عربي)
+Title (English),العنوان (إنجليزي)
+Content (English),المحتوى (إنجليزي)
+Keywords,كلمات البحث
+Arabic,عربي
+English,إنجليزي
+"Short English id, e.g. create-sales-invoice",كود قصير بالإنجليزي، مثلًا create-sales-invoice
+"Shown under ""Explain this screen"" for this screen",بتظهر تحت «شرح الشاشة» للشاشة دي
+"Extra words people may type (Arabic or English), separated by commas",كلمات زيادة ممكن الناس تكتبها (عربي أو إنجليزي)، مفصولة بفاصلة
+A company or person you sell goods or services to.,شركة أو شخص بتبيع له بضاعة أو خدمات.
+A company or person you buy goods or services from.,شركة أو شخص بتشتري منه بضاعة أو خدمات.
+"A product or service you buy, sell or keep in stock.",منتج أو خدمة بتشتريها أو تبيعها أو بتخزنها.
+"Groups items, for pricing, defaults and reporting.",مجموعات للأصناف، للتسعير والإعدادات والتقارير.
+"Groups customers, for pricing and reporting.",مجموعات للعملاء، للتسعير والتقارير.
+"Groups suppliers, for terms and reporting.",مجموعات للموردين، للشروط والتقارير.
+"A unit you measure items in, like kg or box.",وحدة بتقيس بيها الأصناف، زي كيلو أو كرتونة.
+A place where you keep stock.,مكان بتخزن فيه البضاعة.
+"A legal entity with its own books, like your business or a subsidiary.",كيان قانوني له دفاتره الخاصة، زي شركتك أو فرع تابع.
+"A part of your business you track income and expenses for, like a branch or product line.",جزء من نشاطك بتتابع إيراداته ومصروفاته، زي فرع أو خط منتجات.
+A ledger in your chart of accounts that entries are posted to.,حساب في شجرة الحسابات بتترحّل عليه القيود.
+"Someone who sells for you, with targets and commission.",شخص بيبيع لحسابك، له مستهدفات وعمولة.
+"Settings for a point of sale, like its warehouse, price list and payment methods.",إعدادات نقطة البيع، زي المخزن وقائمة الأسعار وطرق الدفع.
+A customer's confirmed order.,طلب مؤكد من عميل.
+Items shipped to a customer.,بضاعة اتسلمت لعميل.
+A bill to a customer for what you sold.,فاتورة للعميل باللي اشتراه منك.
+A sale made at the point of sale.,بيعة من نقطة البيع.
+An order you place with a supplier.,طلب بتبعته لمورد.
+Items received from a supplier.,بضاعة استلمتها من مورد.
+A bill from a supplier for what you bought.,فاتورة من المورد باللي اشتريته منه.
+"Money you received or paid, matched against invoices.",فلوس استلمتها أو دفعتها، مربوطة بالفواتير.
+"A direct entry in your books, for anything without its own form.",قيد مباشر في الدفاتر، لأي عملية ملهاش شاشة خاصة.
+"Moves, receives, issues or manufactures stock.",نقل أو إضافة أو صرف أو تصنيع بضاعة.
+"A single unit of an item, tracked by its own number.",وحدة واحدة من صنف، ليها رقم خاص بيها.
+A group of units of an item made or received together.,مجموعة وحدات من صنف اتصنعت أو اتستلمت مع بعض.
+The materials and operations it takes to make an item.,الخامات والعمليات اللازمة لتصنيع صنف.
+An order to make a quantity of an item.,أمر بتصنيع كمية من صنف.
+The work done for one operation of a work order.,الشغل اللي اتعمل في عملية واحدة من أمر العمل.
+Plans the work orders and materials needed for your demand.,تخطيط أوامر العمل والخامات المطلوبة حسب الطلب.
+A machine or place where operations are done.,ماكينة أو مكان بتتعمل فيه العمليات.
+"A step in making an item, like cutting or assembly.",مرحلة في تصنيع صنف، زي القص أو التجميع.
 General and Payment Ledger Comparison,مقارنة دفتر الأستاذ العام بدفتر المدفوعات
 Supplier Ledger Summary,ملخص دفتر أستاذ الموردين
 Customer Ledger Summary,ملخص دفتر أستاذ العملاء

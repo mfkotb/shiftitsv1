@@ -1,0 +1,220 @@
+/* ===== Salis assistant: top bar button ===== */
+.salis-topbar .salis-assistant-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 40px;
+  padding: 0 14px;
+  margin-inline-start: auto;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(255, 138, 31, 0.55), rgba(255, 138, 31, 0.25));
+  border: 1px solid rgba(255, 176, 102, 0.8);
+  border-radius: 14px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.35), 0 4px 14px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: transform 0.2s, box-shadow 0.25s;
+}
+.salis-topbar .salis-assistant-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45), 0 8px 22px rgba(255, 138, 31, 0.4);
+}
+/* the user chip sits right after the assistant button */
+.salis-topbar .salis-assistant-btn + .salis-user {
+  margin-inline-start: 0;
+}
+
+/* ===== Panel ===== */
+.salis-assistant {
+  position: fixed;
+  top: 72px;
+  bottom: 16px;
+  inset-inline-end: 16px;
+  width: 400px;
+  max-width: calc(100vw - 32px);
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 20px 50px rgba(15, 23, 42, 0.25);
+  z-index: 1040;
+  overflow: hidden;
+  transform: translateX(110%);
+  opacity: 0;
+  pointer-events: none;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.salis-assistant[dir="rtl"] {
+  transform: translateX(-110%);
+}
+body.salis-assistant-open .salis-assistant {
+  transform: none;
+  opacity: 1;
+  pointer-events: auto;
+}
+.salis-assistant header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  color: #fff;
+  background:
+    radial-gradient(120% 220% at 0% 50%, rgba(30, 167, 242, 0.25), transparent 50%),
+    radial-gradient(120% 220% at 100% 50%, rgba(255, 138, 31, 0.25), transparent 50%),
+    var(--salis-bg, #474643);
+}
+.salis-assistant .sa-title {
+  font-size: 17px;
+  font-weight: 700;
+}
+.salis-assistant .sa-close {
+  background: none;
+  border: 0;
+  color: #fff;
+  font-size: 24px;
+  line-height: 1;
+  cursor: pointer;
+}
+.salis-assistant .sa-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 12px 16px 0;
+}
+.salis-assistant .sa-tabs button {
+  flex: 1;
+  padding: 8px 10px;
+  font-weight: 600;
+  color: #1e3a8a;
+  background: #eef2fb;
+  border: 1px solid #dbe3f5;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.salis-assistant .sa-tabs button.active {
+  color: #f97316;
+  background: #fff3e8;
+  border-color: #fdd2ad;
+}
+.salis-assistant .sa-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 14px 18px 18px;
+  color: #1f2937;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.salis-assistant .sa-body.hide {
+  display: none;
+}
+.salis-assistant h3 {
+  margin: 0 0 6px;
+  font-size: 18px;
+  color: #1e3a8a;
+}
+.salis-assistant h4 {
+  margin: 14px 0 6px;
+  font-size: 14px;
+  color: #1e3a8a;
+}
+.salis-assistant ol {
+  padding-inline-start: 20px;
+  margin: 0;
+}
+.salis-assistant .sa-muted {
+  color: #6b7280;
+  font-size: 13px;
+}
+.salis-assistant .sa-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.salis-assistant .sa-chips li {
+  padding: 2px 10px;
+  font-size: 13px;
+  color: #9a3412;
+  background: #fff3e8;
+  border: 1px solid #fdd2ad;
+  border-radius: 999px;
+}
+.salis-assistant .sa-chips.sa-light li {
+  color: #1e3a8a;
+  background: #eef2fb;
+  border-color: #dbe3f5;
+}
+.salis-assistant .sa-links {
+  padding: 0;
+  list-style: none;
+}
+.salis-assistant .sa-links a,
+.salis-assistant .sa-actions a {
+  color: #1d4ed8;
+  font-weight: 600;
+}
+.salis-assistant .sa-search {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+.salis-assistant .sa-search input {
+  flex: 1;
+  height: 38px;
+  padding: 0 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  font-size: 14px;
+}
+.salis-assistant .sa-search button,
+.salis-assistant .sa-back {
+  padding: 0 14px;
+  height: 38px;
+  font-weight: 600;
+  color: #fff;
+  background: #1e3a8a;
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.salis-assistant .sa-back {
+  height: 30px;
+  margin-bottom: 10px;
+  color: #1e3a8a;
+  background: #eef2fb;
+}
+.salis-assistant .sa-card {
+  display: block;
+  padding: 10px 12px;
+  margin-bottom: 8px;
+  color: inherit;
+  text-decoration: none !important;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.salis-assistant a.sa-card:hover {
+  border-color: #fdd2ad;
+  box-shadow: 0 4px 12px rgba(249, 115, 22, 0.12);
+}
+.salis-assistant .sa-screen-hit {
+  background: #f8fafc;
+}
+.salis-assistant .sa-card-title {
+  font-weight: 700;
+  color: #1e3a8a;
+}
+.salis-assistant .sa-actions {
+  display: flex;
+  gap: 16px;
+  margin-top: 6px;
+}
+.salis-assistant .sa-article ol li {
+  margin-bottom: 4px;
+}
