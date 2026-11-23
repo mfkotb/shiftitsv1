@@ -19,6 +19,7 @@
 
 	// =====================================================================
 	// CONFIG — to add a module, add one entry to `modules`. Nothing else.
+	// A module with a `menu` opens it on click; one without a menu needs a `route`.
 	// =====================================================================
 	const SALIS_CONFIG = {
 		landing_page: "home-page", // empty desk route goes here
@@ -31,7 +32,6 @@
 				key: "accounting",
 				title: "Accounting",
 				icon: "business.png",
-				route: ["dashboard-view", "Accounts"],
 				menu: [
 					{ label: "Chart of Account", route: ["account", "view", "tree"] },
 					{ label: "Payment Entry", route: ["payment-entry"] },
@@ -43,7 +43,6 @@
 				key: "buying",
 				title: "Buying",
 				icon: "coins.png",
-				route: ["dashboard-view", "Buying"],
 				menu: [
 					{ label: "Purchase Order", route: ["purchase-order"] },
 					{ label: "Purchase Receipt", route: ["purchase-receipt"] },
@@ -54,7 +53,6 @@
 				key: "selling",
 				title: "Selling",
 				icon: "money.png",
-				route: ["dashboard-view", "Selling"],
 				menu: [
 					{ label: "Sales Order", route: ["sales-order"] },
 					{ label: "Delivery Note", route: ["delivery-note"] },
@@ -66,7 +64,6 @@
 				key: "stock",
 				title: "Stock",
 				icon: "ready-stock.png",
-				route: ["dashboard-view", "Stock"],
 				menu: [
 					{ label: "Stock Entry", route: ["stock-entry"] },
 					{ label: "Purchase Receipt", route: ["purchase-receipt"] },
@@ -79,7 +76,6 @@
 				key: "manufacturing",
 				title: "Manufacturing",
 				icon: "factory.svg",
-				route: ["dashboard-view", "Manufacturing"],
 				menu: [
 					{ label: "Bill of Materials", route: ["bom"] },
 					{ label: "Work Order", route: ["work-order"] },
@@ -143,8 +139,12 @@
 			phone: "+20 122 399 9209",
 		},
 
-		// Hide Frappe's own side menu (dock + sidebar) for everyone except Administrator.
-		// The top bar gets a user menu with Logout instead.
+		// Salis is a cut-down ERPNext for small companies: users other than Administrator
+		// must not see Frappe's own navigation. When true, for non-Administrators:
+		//  - the dock + side menu are hidden (the top bar has a user menu with Logout)
+		//  - workspace pages and the Desktop redirect to the Salis dashboard
+		//  - breadcrumb links to the Desktop / workspaces are removed
+		//  - the search shortcut (Ctrl+K / Ctrl+G) is disabled
 		hide_system_sidebar: true,
 	};
 
@@ -208,7 +208,7 @@
 			const icon = mod.icon.startsWith("/") ? mod.icon : IMG + mod.icon;
 			html += `
 				<div class="salis-module ${mod.key}-wrapper" data-module="${esc(mod.key)}">
-					<a href="${desk_url(mod.route)}" class="custom-navbar-btn">
+					<a href="${mod.route ? desk_url(mod.route) : "#"}" class="custom-navbar-btn"${mod.route ? "" : ' data-toggle-menu="1"'}>
 						<span class="btn-icon-wrapper ${rtl ? "icon-right" : "icon-left"}">
 							<img src="${icon}" alt="" class="btn-icon">
 						</span>
@@ -228,7 +228,7 @@
 		}
 		html += `</div>
 			<div class="salis-module salis-user" data-module="user">
-				<a href="#" class="salis-user-chip" onclick="return false;">
+				<a href="#" class="salis-user-chip">
 					<span class="salis-avatar"></span>
 					<span class="salis-user-name"></span>
 				</a>
@@ -238,6 +238,24 @@
 				</ol></div>
 			</div>`;
 		bar.innerHTML = html;
+		// Module buttons without a page of their own open their menu on click (also for touch).
+		bar.addEventListener("click", (e) => {
+			const btn = e.target.closest('[data-toggle-menu], .salis-user-chip');
+			if (btn) {
+				e.preventDefault();
+				const mod = btn.closest(".salis-module");
+				const was_open = mod.classList.contains("open");
+				bar.querySelectorAll(".salis-module.open").forEach((m) => m.classList.remove("open"));
+				mod.classList.toggle("open", !was_open);
+			} else if (e.target.closest(".salis-mega-menu a")) {
+				bar.querySelectorAll(".salis-module.open").forEach((m) => m.classList.remove("open"));
+			}
+		});
+		document.addEventListener("click", (e) => {
+			if (!e.target.closest(".salis-topbar")) {
+				bar.querySelectorAll(".salis-module.open").forEach((m) => m.classList.remove("open"));
+			}
+		});
 		bar.querySelector('[data-action="logout"]').addEventListener("click", (e) => {
 			e.preventDefault();
 			if (frappe.app?.logout) frappe.app.logout();
@@ -357,6 +375,24 @@
 		},
 		{ admin_too: true }
 	);
+
+	// ---------- Breadcrumbs: no links to Frappe's Desktop or workspaces ----------
+	// Older v16 builds start every trail with <a href="/desk">[monitor icon]</a> followed by
+	// the workspace (e.g. "Invoicing"). Links to doctypes/reports/our pages are kept.
+	const OUR_PAGES = new Set([SALIS_CONFIG.landing_page, "reports"]);
+	const is_system_link = (a) => {
+		const parts = decodeURIComponent(a.pathname).replace(/^\/(app|desk)\/?/, "").split("/").filter(Boolean);
+		if (!parts.length) return true; // Desktop
+		const last = frappe.router.slug ? frappe.router.slug(parts[parts.length - 1]) : parts[parts.length - 1];
+		if (parts.length > 2 || OUR_PAGES.has(last) || frappe.router.routes?.[last]) return false;
+		return !["query-report", "dashboard-view", "List", "Form", "view"].some((p) => parts.includes(p));
+	};
+	rule("breadcrumb-system-links", () => {
+		if (!SALIS_CONFIG.hide_system_sidebar) return;
+		document
+			.querySelectorAll('.navbar-breadcrumbs li > a[href], [id*="breadcrumb"] li > a[href]')
+			.forEach((a) => is_system_link(a) && a.parentElement.remove());
+	});
 
 	// ---------- Labels before inputs ----------
 	rule(
@@ -491,6 +527,11 @@
 	function redirect_empty_route() {
 		if (/^\/(app|desk)\/?$/.test(window.location.pathname)) {
 			frappe.set_route(SALIS_CONFIG.landing_page);
+			return;
+		}
+		// Frappe workspaces (Accounting, Invoicing, Selling …) and module dashboards are not part of Salis
+		if (SALIS_CONFIG.hide_system_sidebar && !is_admin() && ["Workspaces", "dashboard-view"].includes(route()[0])) {
+			frappe.set_route(SALIS_CONFIG.landing_page);
 		}
 	}
 
@@ -528,7 +569,10 @@
 	};
 
 	frappe.after_ajax(() => {
-		if (!is_admin()) frappe.ui.keys?.off?.("ctrl+g");
+		if (!is_admin()) {
+			frappe.ui.keys?.off?.("ctrl+g");
+			if (SALIS_CONFIG.hide_system_sidebar) frappe.ui.keys?.off?.("ctrl+k");
+		}
 		redirect_empty_route();
 		run_rules();
 		new MutationObserver(schedule).observe(document.body, { childList: true, subtree: true });

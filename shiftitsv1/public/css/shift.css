@@ -382,8 +382,9 @@ header.navbar .container {
   padding: 10px;
 }
 
-/* Show menu on hover */
+/* Show menu on hover (or when opened by click / touch) */
 .salis-module:hover .salis-mega-menu,
+.salis-module.open .salis-mega-menu,
 .home-wrapper:hover .home-mega-menu,
 .accounting-wrapper:hover .accounting-mega-menu,
 .buying-wrapper:hover .buying-mega-menu,
