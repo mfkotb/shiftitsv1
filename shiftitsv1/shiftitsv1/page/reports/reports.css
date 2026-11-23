@@ -2,19 +2,33 @@
 
 [data-page-route="reports"] .nav-tabs {
 	justify-content: center;
+	flex-wrap: wrap;
+	gap: 12px;
 	border-bottom: none;
 }
 
+/* Each tab is a light box */
 [data-page-route="reports"] .nav-tabs .nav-link {
 	color: #1e3a8a !important;
 	font-weight: 600;
-	font-size: 28px;
-	border: none;
+	font-size: 20px;
+	padding: 10px 26px;
+	background: #eef2fb;
+	border: 1px solid #dbe3f5 !important;
+	border-radius: 12px;
+	transition: background 0.2s, border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+[data-page-route="reports"] .nav-tabs .nav-link:hover {
+	background: #e3eaf9;
+	transform: translateY(-1px);
 }
 
 [data-page-route="reports"] .nav-tabs .nav-link.active {
 	color: #f97316 !important;
-	border-bottom: 3px solid #f97316 !important;
+	background: #fff3e8;
+	border-color: #fdd2ad !important;
+	box-shadow: 0 4px 12px rgba(249, 115, 22, 0.15);
 }
 
 [data-page-route="reports"] .tiles-container {

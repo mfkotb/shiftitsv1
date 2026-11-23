@@ -93,7 +93,7 @@ bench --site SITE migrate && bench build --app shiftitsv1 && bench restart
 
 ## 8) إخفاء النظام الأصلي عن العميل
 
-Salis نسخة مصغّرة للشركات الصغيرة، فالمستخدم العادي (أي حد غير Administrator) ما يشوفش أي حاجة من واجهة Frappe/ERPNext الأصلية. كله متحكم فيه من `hide_system_sidebar` في `SALIS_CONFIG`:
+Salis نسخة مصغّرة للشركات الصغيرة، فالعميل (أي حد غير Administrator ومعندوش دور System Manager) ما يشوفش أي حاجة من واجهة Frappe/ERPNext الأصلية. كله متحكم فيه من `hide_system_sidebar` في `SALIS_CONFIG`:
 - منيو النظام الجانبية (الـ dock والقائمة) مخفية، واسم المستخدم وتسجيل الخروج في الشريط بتاعنا
 - صفحة الـ Desktop وكل الـ workspaces (Accounting, Invoicing, Selling, Build …) وصفحات `dashboard-view` بتتحوّل للوحة تحكم سالس
 - زرار الـ Desktop وروابط الـ workspaces بتتشال من مسار الصفحة (breadcrumb)
@@ -101,3 +101,5 @@ Salis نسخة مصغّرة للشركات الصغيرة، فالمستخدم �
 - زراير الأقسام في الشريط بتفتح القايمة بتاعتها بدل صفحة `dashboard-view` بتاعة النظام (اللي كانت كمان بتطلّع Permission Error)
 
 ده كله إخفاء في الواجهة. الحماية الحقيقية لسه لازم تتعمل بالصلاحيات (Role / Module Profiles).
+
+فريقكم يشوف النظام الأصلي كامل بدور **System Manager** (`full_access_roles` في `SALIS_CONFIG`). الدور ده ما يتديش للعملاء أبدًا: بيدّي صلاحيات كاملة على السيستم.
