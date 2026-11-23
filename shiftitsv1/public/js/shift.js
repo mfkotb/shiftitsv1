@@ -139,19 +139,26 @@
 			phone: "+20 122 399 9209",
 		},
 
-		// Salis is a cut-down ERPNext for small companies: users other than Administrator
-		// must not see Frappe's own navigation. When true, for non-Administrators:
+		// Salis is a cut-down ERPNext for small companies: customers (anyone who is not
+		// Administrator and has none of full_access_roles) must not see Frappe's own
+		// navigation. When true, for those users:
 		//  - the dock + side menu are hidden (the top bar has a user menu with Logout)
 		//  - workspace pages and the Desktop redirect to the Salis dashboard
 		//  - breadcrumb links to the Desktop / workspaces are removed
 		//  - the search shortcut (Ctrl+K / Ctrl+G) is disabled
 		hide_system_sidebar: true,
+		// Users with any of these roles see everything, like Administrator.
+		full_access_roles: ["System Manager"],
 	};
 
 	// =====================================================================
 	// Helpers
 	// =====================================================================
-	const is_admin = () => frappe.session.user === "Administrator";
+	// "Admin" here = sees the full Frappe/ERPNext UI: Administrator, or anyone with a role
+	// in SALIS_CONFIG.full_access_roles (give it to your own team, never to customers).
+	const is_admin = () =>
+		frappe.session.user === "Administrator" ||
+		SALIS_CONFIG.full_access_roles.some((r) => frappe.user?.has_role?.(r));
 	const is_rtl = () => (frappe.boot.lang || "en") === "ar";
 	const esc = (s) => frappe.utils.escape_html(String(s ?? ""));
 
