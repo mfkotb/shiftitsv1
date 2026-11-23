@@ -22,7 +22,7 @@
 	// =====================================================================
 	const SALIS_CONFIG = {
 		landing_page: "home-page", // empty desk route goes here
-		logo: IMG + "salis-emblem.png",
+		logo: IMG + "salis-logo.svg",
 		brand: { en: "Salis", ar: "سالس" },
 
 		modules: [

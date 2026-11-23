@@ -4,7 +4,7 @@ app_publisher = "Shift ITs"
 app_description = "Salis — simplified ERPNext desk by Shift ITs"
 app_email = "hagarmahoud05@gmail.com"
 app_license = "mit"
-app_logo_url = "/assets/shiftitsv1/images/Salis.png"
+app_logo_url = "/assets/shiftitsv1/images/salis-logo.png"
 app_home = "/desk/home-page"
 
 required_apps = ["frappe/erpnext"]

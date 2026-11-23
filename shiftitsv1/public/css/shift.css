@@ -994,9 +994,10 @@ body[data-path="login"] .btn.btn-primary:hover {
    Glass theme for the top bar (Salis logo colours)
    ======================================================= */
 :root {
-  --salis-bg: #474643;          /* logo background */
-  --salis-blue: #1ea7f2;
-  --salis-orange: #ff8a1f;
+  --salis-bg: #261e89;          /* logo indigo */
+  --salis-bg-dark: #17125c;
+  --salis-blue: #6c63ff;        /* light indigo accent */
+  --salis-orange: #f7931e;      /* logo dot */
   --salis-glass: rgba(255, 255, 255, 0.12);
   --salis-glass-border: rgba(255, 255, 255, 0.28);
 }
@@ -1004,9 +1005,9 @@ body[data-path="login"] .btn.btn-primary:hover {
 .salis-topbar,
 header.navbar:has(.salis-topbar) {
   background:
-    radial-gradient(120% 220% at 0% 50%, rgba(30, 167, 242, 0.22), transparent 45%),
-    radial-gradient(120% 220% at 100% 50%, rgba(255, 138, 31, 0.22), transparent 45%),
-    var(--salis-bg) !important;
+    radial-gradient(60% 260% at 100% 0%, rgba(247, 147, 30, 0.28), transparent 55%),
+    radial-gradient(50% 220% at 0% 100%, rgba(108, 99, 255, 0.35), transparent 60%),
+    linear-gradient(90deg, var(--salis-bg-dark), var(--salis-bg)) !important;
 }
 .salis-topbar {
   min-height: 64px;
@@ -1032,31 +1033,38 @@ header.navbar:has(.salis-topbar) {
   text-decoration: none !important;
 }
 .salis-topbar .custom-navbar-logo img {
-  height: 54px;
-  width: 54px;
-  object-fit: contain;
+  height: 42px;
+  width: 42px;
   margin: 0;
-  transition: transform 0.4s ease, filter 0.3s;
+  border-radius: 10px;
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.25), 0 4px 12px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s;
 }
 .salis-topbar .navbar-logo-link:hover img {
-  transform: rotate(-12deg) scale(1.05);
-  filter: drop-shadow(0 0 8px rgba(255, 138, 31, 0.6));
+  transform: translateY(-1px) scale(1.05);
+  box-shadow: 0 0 0 1px rgba(255, 255, 255, 0.4), 0 0 16px rgba(247, 147, 30, 0.55);
+}
+.salis-topbar .navbar-logo-link {
+  gap: 10px;
 }
 .salis-topbar .salis-brand {
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 26px;
-  letter-spacing: 3px;
-  text-transform: uppercase;
-  color: #ffb066;
-  text-shadow:
-    0 0 6px rgba(255, 138, 31, 0.9),
-    0 0 18px rgba(255, 138, 31, 0.55);
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: #fff;
+}
+.salis-topbar .salis-brand::after { /* the orange dot from the logo */
+  content: "";
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  margin-inline-start: 3px;
+  border-radius: 50%;
+  background: var(--salis-orange);
 }
 .salis-topbar[dir="rtl"] .salis-brand {
   font-family: "Cairo", "Tajawal", "Segoe UI", Tahoma, sans-serif;
-  font-weight: 700;
-  letter-spacing: 0;
-  font-size: 28px;
 }
 
 /* Glass buttons */
@@ -1089,17 +1097,18 @@ header.navbar:has(.salis-topbar) {
   color: #fff;
   transform: translateY(-2px);
   background: linear-gradient(135deg, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
-  border-color: rgba(255, 138, 31, 0.75);
+  border-color: rgba(247, 147, 30, 0.75);
   box-shadow:
     inset 0 1px 0 rgba(255, 255, 255, 0.45),
-    0 0 0 1px rgba(255, 138, 31, 0.25),
-    0 8px 22px rgba(255, 138, 31, 0.3);
+    0 0 0 1px rgba(247, 147, 30, 0.25),
+    0 8px 22px rgba(247, 147, 30, 0.3);
 }
 .salis-topbar .salis-module.active > .custom-navbar-btn {
-  border-color: rgba(30, 167, 242, 0.85);
+  background: linear-gradient(135deg, rgba(247, 147, 30, 0.55), rgba(247, 147, 30, 0.25));
+  border-color: rgba(247, 147, 30, 0.9);
   box-shadow:
-    inset 0 1px 0 rgba(255, 255, 255, 0.45),
-    0 0 14px rgba(30, 167, 242, 0.45);
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 0 14px rgba(247, 147, 30, 0.45);
 }
 .salis-topbar .custom-navbar-btn .btn-icon {
   width: 18px;
@@ -1112,7 +1121,7 @@ header.navbar:has(.salis-topbar) {
   top: calc(100% + 8px);
   min-width: 220px;
   padding: 8px;
-  background: rgba(40, 40, 42, 0.72);
+  background: rgba(30, 24, 110, 0.78);
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 14px;
   backdrop-filter: blur(16px) saturate(160%);
@@ -1141,7 +1150,7 @@ header.navbar:has(.salis-topbar) {
   color: #f3f3f3;
 }
 .salis-topbar .sub-menu .menu-item a:hover {
-  background: rgba(255, 138, 31, 0.22);
+  background: rgba(247, 147, 30, 0.22);
   box-shadow: inset 3px 0 0 var(--salis-orange);
 }
 .salis-topbar[dir="rtl"] .sub-menu .menu-item a:hover {
@@ -1151,5 +1160,5 @@ header.navbar:has(.salis-topbar) {
 /* Browsers without backdrop-filter: keep it readable */
 @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
   .salis-topbar .custom-navbar-btn { background: rgba(255, 255, 255, 0.18); }
-  .salis-topbar .salis-mega-menu { background: rgba(40, 40, 42, 0.96); }
+  .salis-topbar .salis-mega-menu { background: rgba(30, 24, 110, 0.97); }
 }
