@@ -1,0 +1,835 @@
+/* body {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 253, 208, 0.79) 0%,
+    rgba(223, 249, 255, 0.89) 100%
+  ) !important;
+} */
+/* update label positon */
+.frappe-control .form-group {
+    display: flex;
+    align-items: center;
+    gap: 10px; 
+}
+
+.frappe-control .control-label {
+    margin: 0 !important;
+    white-space: nowrap; /* keep label in one line */
+}
+
+.frappe-control .control-input-wrapper {
+    flex: 1; /* input grows to fill space */
+}
+
+/* Hide unneed links */
+
+a[href="/app/payables"],
+a[href="/app/receivables"],
+a[href="/app/financial-reports"],
+a[href="/app/employee-lifecycle"],
+a[href="/app/recruitment"],
+a[href="/app/shift-&-attendance"],
+a[href="/app/leaves"],
+a[href="/app/expense-claims"],
+a[href="/app/assets"],
+a[href="/app/performance"],
+a[href="/app/manufacturing"],
+a[href="/app/quality"],
+a[href="/app/salary-payout"],
+a[href="/app/tax-&-benefits"],
+a[href="/app/projects"],
+a[href="/app/support"],
+a[href="/app/users"],
+a[href="/app/website"],
+a[href="/app/crm"],
+a[href="/app/tools"],
+a[href="/app/erpnext-settings"],
+a[href="/app/integrations"],
+a[href="/app/erpnext-integrations"],
+a[href="/app/home"],
+a[href="/app/accounting"],
+a[href="/app/buying"],
+a[href="/app/stock"],
+a[href="/app/selling"],
+a[href="/app/hr"],
+a[href="/app/e-invoice-egypt"],
+a[href="/app/payroll"],
+a[href="/app/e-invoice"],
+a[href="/app/build"]
+{
+    display: none !important;
+}
+
+/* ================================
+   navbar Customization 
+================================== */
+header.navbar .container {
+  width: 100% !important;
+  margin: 0 !important;
+  padding: 0 1rem !important; 
+  max-width: 2000px !important;
+}
+
+#navbar-breadcrumbs {
+ margin-bottom: 0px !important;
+  margin-top: 0px !important;
+  margin-left: 55px;
+}
+
+/* hidde logo */
+
+.navbar-brand.navbar-home {
+    display: none !important;
+} 
+
+/* Split navbar into top and bottom sections */
+header.navbar .container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+/* hide vertical bar */
+.vertical-bar.d-none.d-sm-block
+{
+    display: none !important;
+}
+
+  header.navbar.navbar-expand {
+    height: 95px !important; 
+    align-items: center;
+  }
+  .page-head .page-head-content {
+  padding: 0 !important; 
+}
+/* .page-head {
+  height: 40px !important; 
+} */
+  /* header.navbar .navbar-brand img {
+    max-height: 60px; 
+  } */
+  /* .moved-sidebar-items {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 2rem;
+  }
+  
+  .moved-sidebar-items a {
+    font-weight: 500;
+    text-decoration: none;
+    padding: 0.25rem 0.5rem;
+    transition: color 0.3s;
+  }
+   */
+ /* Navbar background color */
+.navbar {
+  background-color: #1e3a8a !important;
+}
+#navbar-breadcrumbs a {
+    color: white !important;
+}
+ .es-icon.icon-md {
+  fill: white !important;
+}
+
+/* search */
+
+.search-bar .awesomplete input {
+	width: 175px !important; 
+	padding-left: 36px;
+	height: 32px !important;         
+	border-radius: 8px !important;   
+	background-color: #fdf6e3 !important; 
+	font-size: 14px !important;
+	border: 2px solid #1e3a8a!important;
+	box-shadow: none !important;
+}
+.input-group.search-bar.text-muted {
+    width: 100px !important;
+    margin-left: auto;
+    margin-right: 0;
+  }
+
+/* Help */
+
+
+/* Target the Help button text and hide it */
+.dropdown-help .nav-link span {
+  font-size: 0 !important; 
+  position: relative;
+}
+
+/* Inject icon using pseudo-element */
+.dropdown-help .nav-link span::before {
+  content: "?"; 
+  font-size: 16px;
+  color: var(--text-color); 
+  background-color: var(--control-bg); 
+  display: inline-flex;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+}
+
+/* Optional: on hover change background */
+.dropdown-help .nav-link span:hover::before {
+  background-color: #f97316;
+}
+
+
+.dropdown-help .nav-link svg {
+  display: none !important;
+}
+/* .dropdown-help,
+.dropdown-notifications {
+  display: none !important;
+} */
+/* notification */
+/* 🔹 Notifications Dropdown Styling */
+.dropdown-menu.notifications-list {
+  background-color: #ffffff !important;
+  color: #1e3a8a!important;
+  border-radius: 8px;
+  border: 1px solid #e1dfec; 
+}
+
+/* 🔹 Tabs (Notifications, Events, What's New) */
+.dropdown-menu.notifications-list .notification-item-tabs li {
+  color: #1e3a8a!important;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* 🔹 Active tab */
+  .dropdown-menu.notifications-list .notification-item-tabs li.active {
+    border-bottom: 2px solid #1e3a8a;
+  }
+
+/* 🔹 Empty state titles */
+.dropdown-menu.notifications-list .title {
+  color: #1e3a8a!important;
+  font-weight: bold;
+  font-size: 16px;
+}
+
+/* 🔹 Empty state subtitles */
+.dropdown-menu.notifications-list .subtitle {
+  color: #1e3a8a!important;
+  opacity: 0.8;
+}
+
+/* 🔹 Icons (settings, mark-all-read) */
+.dropdown-menu.notifications-list .header-actions svg {
+  fill: #1e3a8a!important;
+  stroke: #1e3a8a!important;
+}
+
+/* 🔹 Generic links/buttons inside */
+.dropdown-menu.notifications-list a,
+.dropdown-menu.notifications-list span {
+  color: #1e3a8a!important;
+}
+
+    
+.dropdown-notifications .notifications-icon svg {
+  display: none; 
+}
+
+.dropdown-notifications .notifications-icon::before {
+  content: "🔔";
+  font-size: 18px;
+  color: gold;
+}
+/* ======================================================= */
+.avatar-medium {
+  width: 40px;
+  height: 40px;
+}
+.avatar.avatar-medium {
+  margin-right: 100px;
+}
+.avatar-medium .standard-image {
+  font-size: 26px;
+  letter-spacing: 0.02em;
+}
+/* ======================================================= */
+.custom-navbar-logo {
+  width: 155px;   /* desired logo width */
+  height: 60px;   /* desired logo height */
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.custom-navbar-logo img {
+  height: 100%;
+  width: auto;
+  object-fit: cover; /* crop extra space */
+}
+
+/* Module Menu */
+/* Wrapper for each module menu */
+.custom-navbar-btn,
+.accounting-wrapper,
+.buying-wrapper,
+.selling-wrapper,
+.stock-wrapper,
+.accounts-wrapper {
+  position: relative;
+  display: inline-block;
+}
+.custom-navbar-btn .btn-icon-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Updated button style */
+.custom-navbar-btn,
+.reports-wrapper > a,
+.accounting-wrapper > a,
+.buying-wrapper > a,
+.selling-wrapper > a,
+.stock-wrapper > a,
+.accounts-wrapper > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 35px;                     /* compact height */
+  min-width: 120px;                 /* smaller width */
+  padding: 10px 18px;               
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  background-color: orange;         /* solid orange color */
+  border: none;
+  border-radius: 12px;              /* modern rounded edges */
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s, box-shadow 0.2s;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  gap: 8px;
+  margin-right: 12px;
+  font-family: Arial, sans-serif;
+}
+
+/* Hover effect (same as .nav-buttons button:hover) */
+.custom-navbar-btn:hover,
+.reports-wrapper > a:hover,
+.accounting-wrapper > a:hover,
+.buying-wrapper > a:hover,
+.selling-wrapper > a:hover,
+.stock-wrapper > a:hover,
+.accounts-wrapper > a:hover {
+  background-color: #ff9900;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+}
+
+/* Mega menu container */
+.accounting-mega-menu,
+.buying-mega-menu,
+.selling-mega-menu,
+.stock-mega-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  transform: translateY(10px);
+  opacity: 0;
+  visibility: hidden;
+  transition: transform .3s ease, opacity .3s ease;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+  z-index: 10;
+  min-width: 200px;
+  padding: 10px;
+}
+
+/* Show menu on hover */
+.home-wrapper:hover .home-mega-menu,
+.accounting-wrapper:hover .accounting-mega-menu,
+.buying-wrapper:hover .buying-mega-menu,
+.selling-wrapper:hover .selling-mega-menu,
+.stock-wrapper:hover .stock-mega-menu {
+  transform: translateY(0);
+  opacity: 1;
+  visibility: visible;
+}
+
+
+/* Hover */
+.custom-navbar-btn:hover,
+.reports-wrapper > a:hover,
+.accounting-wrapper > a:hover,
+.buying-wrapper > a:hover,
+.selling-wrapper > a:hover,
+.stock-wrapper > a:hover {
+  transform: translateY(-3px);
+}
+
+/* List styling */
+.sub-menu {
+  list-style: none;
+  margin: 0;
+  padding: 8px 0;
+}
+
+.sub-menu .menu-item {
+  padding: 0;
+  margin: 0;
+    font-size: 16px !important; 
+}
+
+/* Menu link */
+.sub-menu .menu-item a {
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #333;
+  transition: background .3s, padding .3s, box-shadow .3s;
+  font-size: 16px !important; 
+  
+}
+
+
+/* Hover effect */
+.sub-menu .menu-item a:hover {
+  background: #f97316;
+  /* padding-left: 28px;
+  box-shadow: inset 4px -4px 0 4px #e1dfec;
+  border-color: #e1dfec; */
+}
+
+/* Gradient text effect */
+.sub-menu .menu-item a span {
+  background: linear-gradient(45deg, #1e3a8a, #1e3a8a);
+  -webkit-background-clip: text;
+  
+  -webkit-text-fill-color: transparent;
+}
+/* Increase spacing between module buttons by 50% */
+.custom-navbar-buttons.d-flex {
+  gap: 1.5rem !important;
+}
+/* Navbar buttons container centered horizontally */
+.custom-navbar-buttons {
+  display: flex;
+  align-items: center;      
+  justify-content: center;   
+  gap: 1rem;
+  margin-left: 0;            
+  width: 100%;               
+  box-sizing: border-box;
+}
+.custom-navbar-buttons.d-flex {
+  gap: 3.5rem !important;
+}
+.custom-navbar-btn:hover {
+  transform: translateY(-2px);
+  text-decoration: none;  
+}
+
+
+.custom-navbar-btn .btn-icon {
+   width: 18px;
+  height: 18px;
+  filter: brightness(0) invert(1);
+}
+
+
+.icon-left {
+  flex-direction: row;
+}
+
+/* Arabic (RTL): icon right */
+.icon-right {
+  flex-direction: row-reverse;
+}
+
+/* ================================
+   Order of Modules (Accounting → Stock → Selling → Buying)
+   (Handled by flexbox order)
+================================== */
+.reports-wrapper .mega-menu .submenu-items > div[data-module="Accounts"] { order: 1; }
+.reports-wrapper .mega-menu .submenu-items > div[data-module="Stock"] { order: 2; }
+.reports-wrapper .mega-menu .submenu-items > div[data-module="Selling"] { order: 3; }
+.reports-wrapper .mega-menu .submenu-items > div[data-module="Buying"] { order: 4; }
+
+
+
+
+
+
+/* ================================
+   Small resets to avoid conflicts
+================================== */
+/* Remove any generic row layout that might override our column */
+.submenu-items { flex-direction: column !important; }
+
+
+
+/* ================================
+    page actions 
+================================== */
+/* .page-head.flex {
+  display: none !important;
+} */
+ .page-head .title-text {
+    color: #1e3a8a !important;
+}
+  .custom-action-slot {
+  background-color: #f9fafb!important;}
+/* page actions buttons customization */
+.standard-actions.flex {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; 
+  }
+  .page-icon-group {
+    display: flex;
+    gap: 8px;
+  }
+  
+  .custom-actions.hidden-xs.hidden-md > * {
+    margin-bottom: 8px; 
+  }
+  
+
+/* page body */
+.container.page-body {
+    width: calc(100% - 40px) !important; 
+    max-width: calc(100% - 40px) !important;
+    padding: 0 !important;
+    margin: 20px !important;
+  }
+  
+
+/* Override primary-action button style */
+button.btn.btn-primary.primary-action {
+    background-color: #1e3a8a !important; /* green background */
+    color: #ffffff !important;
+    font-weight: bold !important;
+  }
+/* List View */
+/* Match modules submenu style */
+.custom-btn-group .dropdown-menu {
+  background: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0;
+  overflow: hidden;
+  min-width: 200px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+
+/* 🔹 Item links */
+.custom-btn-group .dropdown-menu a {
+  display: flex;
+  align-items: center;
+  padding: 10px 14px;
+  color: #1e3a8a !important; /* your text color */
+  font-size: 14px;
+  text-decoration: none;
+  transition: background 0.2s ease;
+}
+
+/* Hover */
+.custom-btn-group .dropdown-menu a:hover {
+  background: #f97316; 
+  color: #1e3a8a !important;
+}
+
+
+
+/* 🔹 Hover effect for ALL dropdowns */
+.dropdown-menu .dropdown-item:hover,
+.dropdown-menu .btn-reset.dropdown-item:hover {
+  background: #f97316 !important; 
+  color: #1e3a8a !important;
+  font-weight: 700;
+}
+
+
+/* Keep icons aligned */
+.btn.btn-default.ellipsis svg {
+  fill: #1e3a8a !important;
+}
+
+/* ================================
+   Documnet
+================================== */
+.form-tabs-list .nav-link {
+  color: #1e3a8a !important;
+}
+
+.form-tabs-list .nav-link.active {
+  color: #1e3a8a !important;
+  border-bottom: 2px solid #1e3a8a !important; /* active underline */
+}
+
+.form-tabs-list .nav-link:hover {
+  color: #1e3a8a !important;
+}
+
+/* 1) Header text color */
+.form-grid-container .grid-heading-row .static-area,
+.form-grid-container .grid-heading-row span {
+  color: #1e3a8a !important;
+  font-weight: 600; /* optional: make it bold */
+}
+
+/* 2) Alternating row background colors */
+.form-grid-container .grid-body .grid-row:nth-child(3n+1) {
+  background-color: #ffffff;
+}
+
+.form-grid-container .grid-body .grid-row:nth-child(3n+2) {
+  background-color: #eaeaf0;
+}
+
+.form-grid-container .grid-body .grid-row:nth-child(3n+3) {
+  background-color: #f5f5f5;
+}
+/* ================================
+   Doctypes
+================================== */
+
+/* Disable click and pointer on collapsible section headers */
+.section-head.collapsible {
+  pointer-events: none;
+  cursor: default;
+}
+
+/* Always show the section body (override collapsed/hidden) */
+ /* .form-section .section-body {
+ display: block !important; 
+  visibility: visible !important;
+   height: auto !important; 
+  opacity: 1 !important;
+}  */
+.section-head.collapsible.collapsed + .section-body {
+  display: flex !important;
+  flex-wrap: wrap;
+}
+
+/* Ensure collapsed sections appear expanded */
+.form-section.collapsible,
+.form-section.collapsible.collapsed {
+  height: auto !important;
+}
+
+/* Hide the arrow icon */
+.section-head .collapse-indicator {
+  display: none !important;
+}
+
+/* frappe list */
+.frappe-list .list-row-head {
+  color: #1e3a8a !important;
+}
+
+/* 1st row style */
+.frappe-list .list-row-container:nth-child(3n+1) {
+  background-color: #ffffff;
+}
+
+/* 2nd row style */
+.frappe-list .list-row-container:nth-child(3n+2) {
+  background-color: #eaeaf0;
+}
+
+/* 3rd row style */
+.frappe-list .list-row-container:nth-child(3n+3) {
+  background-color: #f5f5f5;
+}
+/* Applies to all list rows and leveled rows */
+.frappe-list .list-row-container:hover,
+.frappe-list .list-row:hover,
+.frappe-list .level-list-row:hover {
+  background-color: #f97316 !important;
+  color: #fff !important;
+  transition: background-color 0.2s ease;
+}
+
+/* input[data-fieldname="customer"] {
+    width: 235% !important; 
+} */
+
+
+
+/* ================================
+   Login
+================================== */
+
+
+/* Login page background gradient */
+#page-login {
+  min-height: 100vh;
+}
+
+/* Navbar background + font color */
+.navbar.navbar-light.navbar-expand-lg {
+  background-color: #ffffff !important;
+  color: #1e3a8a !important;
+}
+
+.navbar.navbar-light.navbar-expand-lg a,
+.navbar.navbar-light.navbar-expand-lg .navbar-brand,
+.navbar.navbar-light.navbar-expand-lg .nav-link {
+  color: #1e3a8a !important;
+}
+
+/* Input fields */
+.form-control {
+  border: 1px solid #1e3a8a !important;
+  color: #1e3a8a !important;
+   /* width: 100% !important; */
+}
+
+/* Only affect login page inputs */
+.login-content .form-control {
+  border: 1px solid #1e3a8a !important;
+  color: #1e3a8a !important;
+  /* width: 100% !important;   
+  margin: 0 auto;           */
+}
+/* General text color */
+.page-card,
+.page-card-head h4,
+#page-login {
+  color: #1e3a8a !important;
+}
+
+/* Primary button (login) */
+.btn.btn-primary,
+.btn.btn-sm.btn-primary.btn-block.btn-login {
+  background-color: #1e3a8a !important;
+  border-color: #1e3a8a !important;
+  color: #fff !important;
+}
+
+.btn.btn-primary:hover {
+  background-color: #1e3a8a !important;
+  border-color: #1e3a8a !important;
+}
+/* Remove white background from login card */
+#page-login .page-card {
+  background: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+/* Remove extra white wrapper around inputs */
+#page-login .page-card-body {
+  background: transparent !important;
+}
+
+/* Optional: make inputs look cleaner without the white card */
+#page-login .form-control {
+  background: rgb(255, 255, 255); /* light transparent input */
+  border: 1px solid #1e3a8a;
+  color: #1e3a8a;
+}
+
+#page-login .form-control:focus {
+  background: rgba(255, 255, 255, 0.9);
+  outline: none;
+  border-color: #1e3a8a;
+  box-shadow: 0 0 5px rgba(1, 52, 90, 0.5);
+}
+
+/* Keep button styling consistent */
+#page-login .btn-login {
+  background-color: #1e3a8a !important;
+  border-color: #1e3a8a !important;
+  color: #fff !important;
+}
+
+
+/* ================================
+   Some edits
+================================== */
+/* Change list view row separators */
+.list-row-border {
+  border-color: #1e3a8a !important;
+  background-color: #1e3a8a !important;
+  height: 1px; /* ensures a solid thin line */
+}
+
+/* Change header underline if needed */
+.list-row-head {
+  border-bottom: 2px solid #1e3a8a !important;
+}
+
+/* Optional: change filters bar separator */
+.page-form,
+.standard-filter-section,
+.filter-section {
+  border-bottom: 1px solid #1e3a8a !important;
+}
+/* Paging button styles */
+.level-left .btn-group .btn-paging {
+  background-color: #1e3a8a !important;
+  color: #ffffff !important;
+  border: 1px solid #1e3a8a !important;
+}
+
+/* Hover + active state */
+.level-left .btn-group .btn-paging:hover,
+.level-left .btn-group .btn-paging:focus {
+  background-color: #f97316 !important;
+  border-color: #1e3a8a !important;
+  color: #ffffff !important; /* brighter text on hover */
+}
+
+/* The selected (active/info) button */
+.level-left .btn-group .btn-paging.btn-info {
+  background-color: #1e3a8a !important;
+  color: #ffffff !important;
+  border: 1px solid #1e3a8a !important;
+}
+/* comment */
+.ql-container {
+  border: 1px solid #1e3a8a !important;
+  border-radius: 6px;
+}
+
+/* ================================
+   Flash message
+================================== */
+/* Modal border and outline */
+.modal-dialog.msgprint-dialog .modal-content {
+  border: 2px solid #1e3a8a !important;
+  box-shadow: 0 0 12px rgba(1, 52, 90, 0.4) !important;
+}
+
+/* Modal header border + text */
+.modal-dialog.msgprint-dialog .modal-header {
+  border-bottom: 1px solid #1e3a8a !important;
+  color: #1e3a8a !important;
+}
+
+/* Modal title */
+.modal-dialog.msgprint-dialog .modal-title {
+  color: #1e3a8a !important;
+  font-weight: bold;
+}
+
+/* Modal body text */
+.modal-dialog.msgprint-dialog .modal-body,
+.modal-dialog.msgprint-dialog .modal-body .msgprint {
+  color: #1e3a8a !important;
+}
+
+/* Modal footer border */
+.modal-dialog.msgprint-dialog .modal-footer {
+  border-top: 1px solid #1e3a8a !important;
+  color: #1e3a8a !important;
+}
+
+
