@@ -297,8 +297,11 @@
 				</div>`;
 			// v16: <body> is a flex row (dock | sidebar | .main-section) — a footer appended
 			// to <body> would become a column. Use the desk's own <footer> slot instead.
+			// Older v16 builds have no <footer> slot, so fall back to the end of .main-section.
 			const slot = document.querySelector(".main-section > footer");
+			const main = document.querySelector(".main-section");
 			if (slot) slot.replaceWith(footer);
+			else if (main) main.appendChild(footer);
 			else document.body.appendChild(footer);
 		},
 		{ admin_too: true }

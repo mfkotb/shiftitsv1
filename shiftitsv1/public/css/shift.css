@@ -1174,3 +1174,16 @@ header.navbar:has(.salis-topbar) {
 .form-column.col-sm-3 .frappe-control.input-max-width {
   max-width: none;
 }
+
+/* The footer must never become a column of the v16 flex layout */
+#custom-footer {
+  width: 100%;
+  flex: 0 0 auto;
+}
+body > #custom-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+}
